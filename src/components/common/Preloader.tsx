@@ -104,15 +104,15 @@ export function Preloader({ onDone }: { onDone: () => void }) {
       // Initial states
       gsap.set(q('[data-field]'), { autoAlpha: 0 })
       gsap.set(stage, { rotationY: -32, rotationX: 16, z: -120, transformPerspective: 1400 })
-      gsap.set(green, { autoAlpha: 0, x: -220, z: -380, rotationY: -75, rotationZ: -14, filter: 'blur(10px)' })
-      gsap.set(blue, { autoAlpha: 0, y: 200, z: -320, rotationX: 70, rotationZ: 12, filter: 'blur(10px)' })
+      gsap.set(green, { autoAlpha: 0, xPercent: -90, z: -380, rotationY: -75, rotationZ: -14, filter: 'blur(10px)' })
+      gsap.set(blue, { autoAlpha: 0, yPercent: 80, z: -320, rotationX: 70, rotationZ: 12, filter: 'blur(10px)' })
       gsap.set(base, {
         autoAlpha: 0,
         z: -520,
         scale: 0.72,
         filter: 'brightness(0.15) saturate(0) blur(12px)',
       })
-      gsap.set(violet, { autoAlpha: 0, x: 90, y: -90, rotationZ: 28, scale: 0.6 })
+      gsap.set(violet, { autoAlpha: 0, xPercent: 36, yPercent: -36, rotationZ: 28, scale: 0.6 })
       gsap.set(sheen, { xPercent: -160 })
       gsap.set(reflection, { autoAlpha: 0 })
       gsap.set(qa('[data-glow]'), { autoAlpha: 0, scale: 0.6 })
@@ -142,12 +142,12 @@ export function Preloader({ onDone }: { onDone: () => void }) {
         .to(stage, { rotationY: 0, rotationX: 0, z: 0, duration: 3.4, ease: 'power3.out' }, 0)
 
         // 1 — green
-        .to(green, { autoAlpha: 1, x: 0, z: 0, rotationY: 0, rotationZ: 0, filter: 'blur(0px)', duration: 1.15, ease: 'expo.out' }, 0.25)
+        .to(green, { autoAlpha: 1, xPercent: 0, z: 0, rotationY: 0, rotationZ: 0, filter: 'blur(0px)', duration: 1.15, ease: 'expo.out' }, 0.25)
         .to(q('[data-glow="green"]'), { autoAlpha: 1, scale: 1, duration: 1.2, ease: 'power2.out' }, 0.3)
         .add(showCaption(0), 0.3)
 
         // 2 — blue
-        .to(blue, { autoAlpha: 1, y: 0, z: 0, rotationX: 0, rotationZ: 0, filter: 'blur(0px)', duration: 1.15, ease: 'expo.out' }, 0.9)
+        .to(blue, { autoAlpha: 1, yPercent: 0, z: 0, rotationX: 0, rotationZ: 0, filter: 'blur(0px)', duration: 1.15, ease: 'expo.out' }, 0.9)
         .to(q('[data-glow="blue"]'), { autoAlpha: 1, scale: 1, duration: 1.2, ease: 'power2.out' }, 0.95)
         .add(showCaption(1), 0.95)
 
@@ -162,7 +162,7 @@ export function Preloader({ onDone }: { onDone: () => void }) {
 
         // 4 — the whole logo lights up
         .to(base, { filter: 'brightness(1) saturate(1) blur(0px)', duration: 0.9, ease: 'power2.out' }, 2.45)
-        .to(violet, { autoAlpha: 1, x: 0, y: 0, rotationZ: 0, scale: 1, duration: 0.9, ease: 'back.out(1.6)' }, 2.4)
+        .to(violet, { autoAlpha: 1, xPercent: 0, yPercent: 0, rotationZ: 0, scale: 1, duration: 0.9, ease: 'back.out(1.6)' }, 2.4)
         .to(sheen, { xPercent: 260, duration: 1.25, ease: 'power2.inOut' }, 2.5)
         .fromTo(
           q('[data-ring]'),
@@ -233,7 +233,9 @@ export function Preloader({ onDone }: { onDone: () => void }) {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.65)_100%)]" />
       </div>
 
-      <div className="relative flex h-full flex-col justify-between p-[var(--gutter)]">
+      <div
+        className="relative flex h-full flex-col justify-between px-[max(var(--gutter),env(safe-area-inset-left))] pb-[max(var(--gutter),env(safe-area-inset-bottom))] pt-[max(var(--gutter),env(safe-area-inset-top))]"
+      >
         <div className="flex items-start justify-between">
           <span data-pl-fade className="t-label text-paper/55">
             K76 Business Solutions
@@ -246,7 +248,8 @@ export function Preloader({ onDone }: { onDone: () => void }) {
         {/* 3D logo stage */}
         <div className="flex flex-col items-center" style={{ perspective: '1400px' }}>
           <div data-float className="relative" style={{ transformStyle: 'preserve-3d' }}>
-            <div data-stage className="relative w-[min(46vw,248px)]" style={{ transformStyle: 'preserve-3d' }}>
+            {/* Sized by the smaller of width and height so it fits portrait phones and short landscape screens */}
+            <div data-stage className="relative w-[min(52vw,248px,34svh)]" style={{ transformStyle: 'preserve-3d' }}>
               {/* coloured light behind the mark */}
               <div aria-hidden="true" className="pointer-events-none absolute -inset-[70%]">
                 <div data-glow="green" className="absolute left-[8%] top-[30%] h-[55%] w-[55%] rounded-full bg-[radial-gradient(circle,rgba(157,195,59,0.55),transparent_65%)] blur-2xl" />
@@ -278,7 +281,7 @@ export function Preloader({ onDone }: { onDone: () => void }) {
               <div
                 data-reflection
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 top-[104%] aspect-square opacity-25"
+                className="pointer-events-none absolute inset-x-0 top-[104%] aspect-square opacity-25 [@media(max-height:520px)]:hidden"
                 style={{
                   transform: 'scaleY(-1)',
                   maskImage: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent 45%)',
@@ -291,7 +294,7 @@ export function Preloader({ onDone }: { onDone: () => void }) {
           </div>
 
           {/* stage captions */}
-          <div className="relative mt-[clamp(5rem,14vh,9rem)] h-5 w-72 overflow-hidden text-center">
+          <div className="relative mt-[clamp(3.5rem,11svh,9rem)] h-5 w-[min(18rem,80vw)] overflow-hidden text-center [@media(max-height:520px)]:mt-5">
             {STAGES.map((s) => (
               <span
                 key={s.label}
@@ -310,7 +313,10 @@ export function Preloader({ onDone }: { onDone: () => void }) {
           <span data-pl-fade className="t-label max-w-[14rem] text-paper/55">
             Software · Marketing · Brand · AI · Learn
           </span>
-          <span data-pl-fade className="t-index text-5xl leading-none tracking-tight text-paper sm:text-7xl">
+          <span
+            data-pl-fade
+            className="t-index text-5xl leading-none tracking-tight text-paper sm:text-7xl [@media(max-height:520px)]:text-4xl"
+          >
             <span ref={counter}>000</span>
           </span>
         </div>
