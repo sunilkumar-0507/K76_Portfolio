@@ -173,7 +173,10 @@ export function Footer() {
           <div data-layer="base">
             <K76Mark strokeWidth={1.2} className="w-full" title="" />
           </div>
-          <div data-layer="signal" className="absolute inset-0 text-lime">
+          <div
+            data-layer="signal"
+            className="absolute inset-0 text-lime [&_path:nth-child(4)]:text-cobalt-soft [&_path:nth-child(n+5)]:text-iris-soft"
+          >
             <K76Mark strokeWidth={2} className="w-full" title="" />
           </div>
         </div>

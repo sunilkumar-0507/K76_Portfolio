@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
     description:
       'Website delivered for Govt Society Tamil Nadu under the Tenkasi Fresh name, built on Next.js with Shopify.',
     stack: ['Next.js', 'Shopify'],
-    cover: { bg: '#1b1b1a', fg: '#f5f3ed', accent: '#c8f169' },
+    cover: { bg: '#161616', fg: '#f5f3ed', accent: '#9dc33b' },
   },
   {
     slug: 'daily-pans',
@@ -42,7 +42,7 @@ export const PROJECTS: Project[] = [
     category: 'Websites',
     description: 'Website for JCS, published as Daily Pans, engineered on a Node and Postgres stack.',
     stack: ['Node', 'Postgres'],
-    cover: { bg: '#e0dccf', fg: '#171717', accent: '#e8643a' },
+    cover: { bg: '#e0dccf', fg: '#171717', accent: '#1d4fc4' },
   },
   {
     slug: 'krishna-cafe',
@@ -51,7 +51,7 @@ export const PROJECTS: Project[] = [
     category: 'Marketing',
     description: 'Marketing engagement for Anbalayaas around Krishna Cafe, with a Next.js and Shopify build.',
     stack: ['Next.js', 'Shopify'],
-    cover: { bg: '#c8f169', fg: '#171717', accent: '#171717' },
+    cover: { bg: '#9dc33b', fg: '#161616', accent: '#7b3fd6' },
   },
   {
     slug: 'vinothini-crackers',
@@ -60,7 +60,7 @@ export const PROJECTS: Project[] = [
     category: 'Websites',
     description: 'Web presence for Vinothini Crackers, supported by Meta and Google Ads campaigns.',
     stack: ['Meta Ads', 'Google Ads'],
-    cover: { bg: '#e8643a', fg: '#111111', accent: '#f5f3ed' },
+    cover: { bg: '#1d4fc4', fg: '#f5f3ed', accent: '#9dc33b' },
   },
   {
     slug: 'friends-finance',
@@ -69,6 +69,6 @@ export const PROJECTS: Project[] = [
     category: 'Apps',
     description: 'App build for Kaniah’s Friends Finance across web and mobile — Next.js, React Native and Firebase.',
     stack: ['Next.js', 'React Native', 'Firebase'],
-    cover: { bg: '#111111', fg: '#f5f3ed', accent: '#c8f169' },
+    cover: { bg: '#7b3fd6', fg: '#f5f3ed', accent: '#161616' },
   },
 ]

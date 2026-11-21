@@ -19,7 +19,14 @@ export function ScrollProgress() {
 
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-[2px]">
-      <div ref={bar} className="h-full origin-left scale-x-0 bg-lime" />
+      <div
+        ref={bar}
+        className="h-full origin-left scale-x-0"
+        style={{
+          background:
+            'linear-gradient(90deg, var(--lime) 0 33.33%, var(--cobalt) 33.33% 66.66%, var(--iris) 66.66% 100%)',
+        }}
+      />
     </div>
   )
 }

@@ -18,7 +18,6 @@ interface ButtonProps {
   icon?: ReactNode
   magnetic?: boolean
   className?: string
-  cursor?: string
   ariaLabel?: string
 }
 
@@ -44,7 +43,6 @@ export function Button({
   icon,
   magnetic = true,
   className = '',
-  cursor,
   ariaLabel,
 }: ButtonProps) {
   const ref = useRef<HTMLElement | null>(null)
@@ -107,7 +105,6 @@ export function Button({
 
   const shared = {
     className: classes,
-    'data-cursor': cursor ?? 'hover',
     'aria-label': ariaLabel,
     onClick,
   }

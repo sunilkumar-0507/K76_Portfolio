@@ -12,7 +12,12 @@ export function SectionLabel({ index, label, className = '', tone = 'light' }: S
   return (
     <div data-label className={`flex items-center gap-4 ${className}`}>
       <span className={`t-index text-xs ${muted}`}>({index})</span>
-      <span className={`h-px w-12 ${line}`} aria-hidden="true" />
+      <span className="flex items-center" aria-hidden="true">
+        <span className={`h-px w-8 ${line}`} />
+        <span className="h-[3px] w-3 bg-lime" />
+        <span className="h-[3px] w-3 bg-cobalt" />
+        <span className="h-[3px] w-3 bg-iris" />
+      </span>
       <span className={`t-label ${tone === 'dark' ? 'text-paper/80' : 'text-ink/80'}`}>{label}</span>
     </div>
   )

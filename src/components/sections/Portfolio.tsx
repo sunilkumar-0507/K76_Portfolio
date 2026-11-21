@@ -129,7 +129,6 @@ export function Portfolio() {
               <button
                 type="button"
                 data-frame
-                data-cursor="View"
                 onClick={() => setOpenIndex(i)}
                 className="relative block aspect-[4/3] w-full overflow-hidden text-left lg:aspect-[16/10] lg:h-auto lg:max-h-[58vh]"
                 aria-label={`View project: ${p.name}`}

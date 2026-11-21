@@ -10,7 +10,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', section: 'top' },
   { label: 'About', section: 'about', route: '/about' },
   { label: 'Services', section: 'services', route: '/services' },
-  { label: 'Work', section: 'work' },
   { label: 'K76 Learn', section: 'learn' },
   { label: 'Contact', section: 'contact', route: '/contact' },
 ]

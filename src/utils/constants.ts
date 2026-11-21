@@ -70,3 +70,10 @@ export const MOTION = {
   ease: 'expo.out',
   easeInOut: 'power3.inOut',
 } as const
+
+/** The three accent colours of the K76 logo, in logo order. */
+export const BRAND_COLORS = ['var(--lime)', 'var(--cobalt)', 'var(--iris)'] as const
+/** Tints of the brand colours that stay legible as text on charcoal. */
+export const BRAND_TINTS = ['var(--lime)', 'var(--cobalt-soft)', 'var(--iris-soft)'] as const
+export const brandColor = (i: number) => BRAND_COLORS[i % BRAND_COLORS.length]
+export const brandTint = (i: number) => BRAND_TINTS[i % BRAND_TINTS.length]

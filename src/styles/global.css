@@ -18,8 +18,14 @@
   --muted-on-dark: #8f8e87;
   --line: rgb(23 23 23 / 0.14);
   --line-on-dark: rgb(245 243 237 / 0.14);
-  --lime: #c8f169;
-  --lime-deep: #a9d943;
+  /* K76 logo palette */
+  --lime: #9dc33b;
+  --lime-deep: #7fa526;
+  --cobalt: #1d4fc4;
+  --iris: #7b3fd6;
+  /* lighter tints for text on charcoal */
+  --cobalt-soft: #7097f2;
+  --iris-soft: #ad86f2;
   --ember: #e8643a;
 
   --gutter: clamp(1rem, 3.2vw, 3rem);
@@ -40,8 +46,12 @@
   --color-char-3: #262624;
   --color-muted: #6b6a64;
   --color-muted-dark: #8f8e87;
-  --color-lime: #c8f169;
-  --color-lime-deep: #a9d943;
+  --color-lime: #9dc33b;
+  --color-lime-deep: #7fa526;
+  --color-cobalt: #1d4fc4;
+  --color-iris: #7b3fd6;
+  --color-cobalt-soft: #7097f2;
+  --color-iris-soft: #ad86f2;
   --color-ember: #e8643a;
 
   --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
@@ -165,21 +175,6 @@ button {
 
 .skip-link:focus {
   top: 1rem;
-}
-
-/* Custom cursor: hide native cursor only when the custom one is active */
-html.has-cursor,
-html.has-cursor a,
-html.has-cursor button,
-html.has-cursor [role='button'],
-html.has-cursor label,
-html.has-cursor select {
-  cursor: none;
-}
-
-html.has-cursor input,
-html.has-cursor textarea {
-  cursor: text;
 }
 
 /* Visually hidden */

@@ -11,6 +11,8 @@ import { SplitText } from '../common/SplitText'
 type NodeId = 'solutions' | 'learn' | 'products'
 type Pt = [number, number]
 
+const COLOR: Record<NodeId, string> = { solutions: 'var(--lime)', learn: 'var(--cobalt)', products: 'var(--iris)' }
+
 const PARTS: Array<{ id: NodeId; index: string; title: string; role: string; body: string }> = [
   {
     id: 'solutions',
@@ -158,7 +160,7 @@ export function Ecosystem() {
             {geometry.spokes.map((s) => (
               <g key={s.id} className="transition-opacity duration-500" opacity={isLit(s.id) ? 1 : 0.15}>
                 <path data-edge d={s.d} stroke="var(--ink)" strokeWidth="1.25" />
-                <path data-signal d={s.d} stroke="var(--lime-deep)" strokeWidth="3" strokeLinecap="round" />
+                <path data-signal d={s.d} stroke={COLOR[s.id]} strokeWidth="3" strokeLinecap="round" />
               </g>
             ))}
             {/* nodes */}
@@ -166,13 +168,15 @@ export function Ecosystem() {
               const [x, y] = L.nodes[id]
               return (
                 <g key={id}>
-                  <circle data-pulse cx={x} cy={y} r="12" fill="var(--lime)" style={{ transformOrigin: `${x}px ${y}px` }} />
+                  <circle data-pulse cx={x} cy={y} r="12" fill={COLOR[id]} style={{ transformOrigin: `${x}px ${y}px` }} />
                   <circle
                     data-node
                     cx={x}
                     cy={y}
                     r={focus === id ? 16 : 12}
-                    fill={focus === id ? 'var(--lime)' : 'var(--ink)'}
+                    fill={COLOR[id]}
+                    stroke="var(--paper-2)"
+                    strokeWidth={focus === id ? 4 : 0}
                     style={{ transformOrigin: `${x}px ${y}px`, transition: 'r .4s, fill .4s' }}
                   />
                 </g>
@@ -239,7 +243,10 @@ export function Ecosystem() {
                 className={`absolute w-max max-w-[44vw] text-left md:max-w-none ${placement}`}
                 style={pos}
               >
-                <span className="t-index block text-xs text-ink/45">{p.index}</span>
+                <span className="flex items-center gap-2 text-xs text-ink/45">
+                  <span className="h-2 w-2" style={{ background: COLOR[p.id] }} aria-hidden="true" />
+                  <span className="t-index">{p.index}</span>
+                </span>
                 <span
                   className={`block font-display text-[clamp(1.05rem,2.2vw,2rem)] font-medium uppercase leading-[0.95] tracking-[-0.035em] transition-colors duration-300 ${
                     focus === p.id ? 'text-ink' : focus ? 'text-ink/35' : 'text-ink'
@@ -260,7 +267,10 @@ export function Ecosystem() {
               data-eco-col
               className={`transition-opacity duration-500 ${focus && focus !== p.id ? 'opacity-40' : 'opacity-100'}`}
             >
-              <p className="t-index text-sm text-ink/45">{p.index}</p>
+              <p className="flex items-center gap-2 text-sm text-ink/45">
+                <span className="h-2.5 w-2.5" style={{ background: COLOR[p.id] }} aria-hidden="true" />
+                <span className="t-index">{p.index}</span>
+              </p>
               <h3 className="mt-3 font-display text-xl font-medium tracking-[-0.02em]">{p.title}</h3>
               <p className="mt-3 max-w-sm text-sm text-ink/65">{p.body}</p>
             </div>

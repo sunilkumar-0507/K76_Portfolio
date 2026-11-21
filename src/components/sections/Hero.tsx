@@ -5,10 +5,13 @@ import { gsap, isFinePointer, prefersReducedMotion } from '../../animations/gsap
 import { useAppState } from '../../hooks/useAppState'
 import { useGsap } from '../../hooks/useGsap'
 import { useSectionNav } from '../../hooks/useSectionNav'
+import { brandColor } from '../../utils/constants'
 import { Button } from '../common/Button'
+import { BrandMarkShapes } from '../common/BrandMark'
 import { SplitText } from '../common/SplitText'
 
 const TICKS = 76
+const TICK_COLORS = ['var(--lime)', 'var(--cobalt)', 'var(--iris)', 'var(--lime)']
 const MARQUEE = [
   'Custom Software',
   'Web Platforms',
@@ -37,7 +40,7 @@ function useIstClock() {
   return time
 }
 
-/** Custom geometric composition — a 76-tick dial, a lime block and a crosshair. */
+/** Custom geometric composition — a 76-tick dial, the K76 mark and a crosshair. */
 function HeroVisual() {
   const R = 200
   return (
@@ -60,27 +63,19 @@ function HeroVisual() {
               y1={Math.sin(a) * r1}
               x2={Math.cos(a) * R}
               y2={Math.sin(a) * R}
-              stroke="currentColor"
-              strokeWidth={long ? 2 : 1}
+              stroke={long ? TICK_COLORS[(i / 19) % TICK_COLORS.length] : 'currentColor'}
+              strokeWidth={long ? 3 : 1}
             />
           )
         })}
        </g>
       </g>
       <g data-depth="0.7">
-        <rect data-block x="-62" y="-62" width="124" height="124" fill="var(--lime)" />
-        <text
-          x="0"
-          y="10"
-          textAnchor="middle"
-          className="font-display"
-          fontSize="30"
-          fontWeight="600"
-          letterSpacing="-1.5"
-          fill="var(--ink)"
-        >
-          K76
-        </text>
+        <g data-block>
+          <g transform="translate(-68 -68) scale(1.36)">
+            <BrandMarkShapes clipId="hero-mark" />
+          </g>
+        </g>
       </g>
       <g data-depth="1" stroke="currentColor" strokeWidth="1">
         <line data-stroke x1="-230" y1="0" x2="-84" y2="0" />
@@ -88,7 +83,7 @@ function HeroVisual() {
         <line data-stroke x1="0" y1="-230" x2="0" y2="-84" />
         <line data-stroke x1="0" y1="84" x2="0" y2="230" />
         <g data-orbit>
-          <circle cx={R} cy="0" r="6" fill="var(--ink)" stroke="none" />
+          <circle cx={R} cy="0" r="7" fill="var(--iris)" stroke="none" />
         </g>
       </g>
     </svg>
@@ -213,7 +208,7 @@ export function Hero() {
       <div className="wrap relative flex flex-1 flex-col justify-center py-10 md:py-0">
         <div
           data-hero-visual-wrap
-          className="pointer-events-none absolute right-[var(--gutter)] top-0 w-[34vw] max-w-[540px] translate-y-0 text-ink/70 sm:w-[40vw] md:top-1/2 md:-translate-y-1/2 lg:w-[36vw]"
+          className="pointer-events-none absolute right-[var(--gutter)] top-0 w-[34vw] max-w-[540px] translate-y-0 text-ink/70 sm:w-[40vw] md:top-1/2 md:-translate-y-1/2 lg:w-[28vw]"
         >
           <div data-hero-visual className="aspect-square">
             <HeroVisual />
@@ -226,7 +221,7 @@ export function Hero() {
           by="char"
           text={"Building\nwhat's next."}
           className="t-display t-mega relative z-[1] text-ink"
-          lineClassName="[&:nth-child(2)]:pl-[4vw] md:[&:nth-child(2)]:pl-[11vw]"
+          lineClassName="[&:nth-child(2)]:pl-[4vw] md:[&:nth-child(2)]:pl-[7vw]"
         />
       </div>
 
@@ -263,10 +258,10 @@ export function Hero() {
         <div className="marquee-track flex w-max">
           {[0, 1].map((dup) => (
             <ul key={dup} className="flex shrink-0 items-center">
-              {MARQUEE.map((m) => (
+              {MARQUEE.map((m, n) => (
                 <li key={m} className="flex items-center font-display text-sm uppercase tracking-[0.12em] text-ink/60">
                   <span className="px-6">{m}</span>
-                  <span className="h-1.5 w-1.5 bg-lime-deep" />
+                  <span className="h-1.5 w-1.5" style={{ background: brandColor(n) }} />
                 </li>
               ))}
             </ul>

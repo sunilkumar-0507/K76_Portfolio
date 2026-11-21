@@ -25,7 +25,8 @@ function useSectionSpy() {
     const pick = () => {
       // The most specific (smallest) active section wins, e.g. "learn" inside "services".
       const best = [...active].sort((a, b) => a.offsetHeight - b.offsetHeight)[0]
-      setActiveSection(best?.id ?? 'top')
+      // Between nav sections (e.g. Work, Process) keep the last highlighted item.
+      if (best) setActiveSection(best.id)
     }
     const triggers = NAV_ITEMS.map((n) => document.getElementById(n.section))
       .filter((el): el is HTMLElement => !!el)

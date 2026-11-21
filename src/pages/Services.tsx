@@ -11,7 +11,7 @@ import { Process } from '../components/sections/Process'
 import { VerticalGlyph } from '../components/sections/VerticalGlyph'
 import { COURSES, INDUSTRIES, LEARN_PILLARS, PRACTICES, VERTICALS } from '../data/services'
 import { useGsap } from '../hooks/useGsap'
-import { SITE } from '../utils/constants'
+import { brandColor, brandTint, SITE } from '../utils/constants'
 
 const servicesJsonLd = {
   '@context': 'https://schema.org',
@@ -65,7 +65,7 @@ export default function ServicesPage() {
             <div className="mt-20 divide-y divide-paper/10 border-y border-paper/10">
               {PRACTICES.map((p, i) => (
                 <article key={p.title} data-reveal-group className="grid gap-6 py-12 md:grid-cols-12 md:py-16">
-                  <span data-reveal className="t-index text-sm text-lime md:col-span-1">
+                  <span data-reveal className="t-index text-sm md:col-span-1" style={{ color: brandTint(i) }}>
                     0{i + 1}
                   </span>
                   <div data-reveal className="md:col-span-5">
@@ -75,7 +75,7 @@ export default function ServicesPage() {
                   <ul data-reveal className="grid gap-x-8 gap-y-3 sm:grid-cols-2 md:col-span-6">
                     {p.items.map((item) => (
                       <li key={item} className="flex items-center gap-3 border-b border-paper/10 pb-3 font-display text-lg tracking-[-0.01em]">
-                        <span className="h-1.5 w-1.5 shrink-0 bg-lime" aria-hidden="true" />
+                        <span className="h-1.5 w-1.5 shrink-0" style={{ background: brandColor(i) }} aria-hidden="true" />
                         {item}
                       </li>
                     ))}
@@ -97,15 +97,15 @@ export default function ServicesPage() {
                 </h2>
               </div>
               <div className="h-40 w-40 text-ink md:col-span-3 md:col-start-10 md:justify-self-end">
-                <VerticalGlyph kind="steps" className="h-full w-full [--glyph-line:var(--ink)]" />
+                <VerticalGlyph kind="steps" className="h-full w-full [--glyph-accent:var(--cobalt)] [--glyph-line:var(--ink)]" />
               </div>
             </div>
             <p className="mt-10 max-w-2xl text-ink/65">{VERTICALS[1].summary} New cohorts every month.</p>
 
             <div data-reveal-group className="mt-16 grid gap-px bg-ink/15 sm:grid-cols-2 lg:grid-cols-3">
               {COURSES.map((c) => (
-                <article key={c.title} data-reveal className="group flex min-h-64 flex-col bg-paper p-8 transition-colors duration-500 hover:bg-ink hover:text-paper">
-                  <span className="t-label text-ink/45 group-hover:text-lime">{c.weeks} weeks</span>
+                <article key={c.title} data-reveal className="group flex min-h-64 flex-col bg-paper p-8 transition-colors duration-500 hover:bg-cobalt hover:text-paper">
+                  <span className="t-label text-ink/45 group-hover:text-paper/80">{c.weeks} weeks</span>
                   <h3 className="mt-auto font-display text-3xl font-medium uppercase leading-none tracking-[-0.04em]">{c.title}</h3>
                   <p className="mt-3 text-sm text-ink/60 group-hover:text-paper/65">{c.topics}</p>
                 </article>
@@ -166,10 +166,10 @@ export default function ServicesPage() {
             <div className="marquee-track flex w-max">
               {[0, 1].map((d) => (
                 <ul key={d} className="flex shrink-0 items-center">
-                  {INDUSTRIES.map((ind) => (
+                  {INDUSTRIES.map((ind, n) => (
                     <li key={ind} className="flex items-center font-display text-[clamp(2rem,5vw,4.5rem)] font-medium uppercase tracking-[-0.04em]">
                       <span className="px-8">{ind}</span>
-                      <span className="h-3 w-3 rounded-full bg-lime-deep" />
+                      <span className="h-3 w-3 rounded-full" style={{ background: brandColor(n) }} />
                     </li>
                   ))}
                 </ul>

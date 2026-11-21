@@ -7,15 +7,15 @@ import { useAppState } from '../../hooks/useAppState'
 import { useLenis } from '../../hooks/useLenis'
 import { useSectionNav } from '../../hooks/useSectionNav'
 import { SITE } from '../../utils/constants'
+import { BrandMark } from './BrandMark'
 
 const ease = [0.76, 0, 0.24, 1] as const
 
 function Logo({ dark }: { dark: boolean }) {
   return (
     <span className="flex items-center gap-3">
-      <span className="font-display text-[1.6rem] font-bold leading-none tracking-[-0.06em]">
-        K76<span className="text-lime-deep">.</span>
-      </span>
+      <BrandMark className="h-9 w-9 shrink-0" title="" />
+      <span className="font-display text-[1.45rem] font-bold leading-none tracking-[-0.06em]">K76</span>
       <span
         className={`hidden border-l pl-3 text-[0.68rem] font-medium uppercase leading-[1.15] tracking-[0.14em] md:block ${
           dark ? 'border-paper/20 text-paper/60' : 'border-ink/15 text-ink/55'
@@ -132,7 +132,6 @@ export function Navbar() {
               }
             }}
             aria-label={`${SITE.name} — home`}
-            data-cursor="hover"
           >
             <Logo dark={onDarkBar || menuOpen} />
           </Link>

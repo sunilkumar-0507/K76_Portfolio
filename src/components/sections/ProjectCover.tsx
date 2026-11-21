@@ -50,7 +50,7 @@ export function ProjectCover({ project, index, sizes = '(min-width: 1024px) 60vw
         <div className="relative">
           <span
             className="absolute -top-[18%] right-[6%] aspect-square w-[22%] rounded-full"
-            style={{ background: accent, mixBlendMode: bg === '#c8f169' ? 'multiply' : 'normal' }}
+            style={{ background: accent, mixBlendMode: 'normal' }}
           />
           <p className="relative font-display text-[14cqw] font-medium uppercase leading-[0.82] tracking-[-0.06em]">
             {words.map((w, i) => (

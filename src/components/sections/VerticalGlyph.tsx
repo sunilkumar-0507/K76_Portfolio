@@ -43,7 +43,7 @@ function GridGlyph() {
             width="40"
             height="40"
             style={{ transformOrigin: `${x + 20}px ${y + 20}px` }}
-            fill={lit.has(i) ? 'var(--lime)' : 'transparent'}
+            fill={lit.has(i) ? 'var(--glyph-accent, var(--lime))' : 'transparent'}
             stroke={lit.has(i) ? 'none' : 'currentColor'}
             strokeOpacity="0.35"
           />
@@ -71,7 +71,7 @@ function StepsGlyph() {
             width="24"
             height={h}
             style={{ transformOrigin: `${x + 12}px 226px` }}
-            fill={i === bars.length - 1 ? 'var(--lime)' : 'transparent'}
+            fill={i === bars.length - 1 ? 'var(--glyph-accent, var(--lime))' : 'transparent'}
             stroke={i === bars.length - 1 ? 'none' : 'currentColor'}
             strokeOpacity="0.4"
           />
@@ -114,12 +114,12 @@ function ModulesGlyph() {
           cy={y}
           r="9"
           style={{ transformOrigin: `${x}px ${y}px` }}
-          fill={i % 3 === 0 ? 'var(--lime)' : 'var(--char)'}
+          fill={i % 3 === 0 ? 'var(--glyph-accent, var(--lime))' : 'var(--char)'}
           stroke="currentColor"
           strokeOpacity="0.6"
         />
       ))}
-      <rect data-tile x="92" y="92" width="56" height="56" style={{ transformOrigin: '120px 120px' }} fill="var(--lime)" />
+      <rect data-tile x="92" y="92" width="56" height="56" style={{ transformOrigin: '120px 120px' }} fill="var(--glyph-accent, var(--lime))" />
     </g>
   )
 }

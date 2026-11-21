@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { useRef, useState } from 'react'
+import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { charWave } from '../../animations/animeAnimations'
 import { gsap, MQ, ScrollTrigger } from '../../animations/gsapConfig'
@@ -21,8 +22,7 @@ function ServiceItem({ label, n }: { label: string; n: number }) {
     >
       <Link
         to="/services"
-        className="flex items-center gap-5 py-4 transition-colors duration-300 group-hover:text-lime md:py-5"
-        data-cursor="hover"
+        className="flex items-center gap-5 py-4 transition-colors duration-300 group-hover:text-[var(--v-tint)] md:py-5"
       >
         <span className="t-index w-7 text-xs text-paper/35">{String(n).padStart(2, '0')}</span>
         <span ref={textRef} className="flex-1 font-display text-[clamp(1.1rem,1.7vw,1.6rem)] tracking-[-0.02em]" aria-label={label}>
@@ -40,7 +40,7 @@ function ServiceItem({ label, n }: { label: string; n: number }) {
       </Link>
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-lime transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-x-100"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-[var(--v-color)] transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-x-100"
       />
     </li>
   )
@@ -123,7 +123,10 @@ export function Services() {
           {isDesktop ? (
             <div className="lg:col-span-5">
               <div className="sticky top-[18vh]">
-                <div className="relative aspect-square w-full max-w-[440px] text-paper">
+                <div
+                  className="relative aspect-square w-full max-w-[440px] text-paper"
+                  style={{ '--glyph-accent': current.color } as CSSProperties}
+                >
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={current.id}
@@ -137,7 +140,9 @@ export function Services() {
                   </AnimatePresence>
                 </div>
                 <div className="mt-10 flex items-baseline gap-5">
-                  <span className="t-index text-sm text-lime">{current.index} / 03</span>
+                  <span className="t-index text-sm transition-colors duration-500" style={{ color: current.tint }}>
+                    {current.index} / 03
+                  </span>
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={current.id}
@@ -162,6 +167,7 @@ export function Services() {
                 id={v.anchor}
                 data-vertical
                 onPointerEnter={() => setActive(i)}
+                style={{ '--v-color': v.color, '--v-tint': v.tint, '--glyph-accent': v.color } as CSSProperties}
                 className={`scroll-mt-28 ${i === 1 ? 'lg:pl-[8%]' : i === 2 ? 'lg:pl-[16%]' : ''}`}
                 aria-labelledby={`vertical-${v.id}`}
               >
@@ -169,7 +175,7 @@ export function Services() {
                   <span
                     data-v-rise
                     className={`t-index t-outline font-display text-[clamp(4.5rem,12vw,10rem)] font-medium leading-[0.8] tracking-[-0.06em] transition-colors duration-500 ${
-                      active === i ? 'text-lime' : 'text-paper/50'
+                      active === i ? 'text-[var(--v-tint)]' : 'text-paper/50'
                     }`}
                   >
                     {v.index}

@@ -13,6 +13,10 @@ export interface Vertical {
   summary: string
   items: string[]
   glyph: VerticalGlyph
+  /** Brand colour from the K76 logo */
+  color: string
+  /** Lighter tint of `color`, legible as text on charcoal */
+  tint: string
   anchor?: string
 }
 
@@ -34,6 +38,8 @@ export const VERTICALS: Vertical[] = [
       'Business Consulting',
     ],
     glyph: 'grid',
+    color: 'var(--lime)',
+    tint: 'var(--lime)',
   },
   {
     id: 'learn',
@@ -52,6 +58,8 @@ export const VERTICALS: Vertical[] = [
       'Practical Industry Training',
     ],
     glyph: 'steps',
+    color: 'var(--cobalt)',
+    tint: 'var(--cobalt-soft)',
     anchor: 'learn',
   },
   {
@@ -69,6 +77,8 @@ export const VERTICALS: Vertical[] = [
       'Custom Business Tools',
     ],
     glyph: 'modules',
+    color: 'var(--iris)',
+    tint: 'var(--iris-soft)',
   },
 ]
 

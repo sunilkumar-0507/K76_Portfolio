@@ -2,7 +2,6 @@ import { AnimatePresence } from 'framer-motion'
 import { lazy, Suspense, useCallback, useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { ScrollTrigger } from './animations/gsapConfig'
-import { CustomCursor } from './components/common/CustomCursor'
 import { Navbar } from './components/common/Navbar'
 import { Preloader } from './components/common/Preloader'
 import { ScrollProgress } from './components/common/ScrollProgress'
@@ -47,7 +46,6 @@ function Shell() {
         Skip to content
       </a>
       {!introDone ? <Preloader onDone={() => setIntroDone(true)} /> : null}
-      <CustomCursor />
       <ScrollProgress />
       <Navbar />
       <AnimatePresence mode="wait" onExitComplete={onExitComplete}>
