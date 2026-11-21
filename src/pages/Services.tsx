@@ -12,6 +12,7 @@ import { VerticalGlyph } from '../components/sections/VerticalGlyph'
 import { COURSES, INDUSTRIES, LEARN_PILLARS, PRACTICES, VERTICALS } from '../data/services'
 import { useGsap } from '../hooks/useGsap'
 import { brandColor, brandTint, SITE } from '../utils/constants'
+import { SectionGlitter } from '../components/common/GlitterField'
 
 const servicesJsonLd = {
   '@context': 'https://schema.org',
@@ -56,7 +57,8 @@ export default function ServicesPage() {
         />
 
         {/* Practices */}
-        <section data-nav-theme="dark" className="on-dark grain section" aria-labelledby="practices-title">
+        <section data-nav-theme="dark" className="relative isolate on-dark grain section" aria-labelledby="practices-title">
+          <SectionGlitter tone="dark" />
           <div className="wrap">
             <SectionLabel index="01" label="Business Solutions" tone="dark" className="mb-10" />
             <h2 id="practices-title" className="t-h2 max-w-[14ch] uppercase">
@@ -87,7 +89,8 @@ export default function ServicesPage() {
         </section>
 
         {/* K76 Learn */}
-        <section id="learn-courses" data-nav-theme="light" className="section scroll-mt-20 bg-paper" aria-labelledby="learn-title">
+        <section id="learn-courses" data-nav-theme="light" className="relative isolate section scroll-mt-20 bg-paper" aria-labelledby="learn-title">
+          <SectionGlitter tone="light" />
           <div className="wrap">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-8">
@@ -133,7 +136,8 @@ export default function ServicesPage() {
         </section>
 
         {/* K76 Products */}
-        <section data-nav-theme="light" className="section bg-paper-2" aria-labelledby="products-title">
+        <section data-nav-theme="light" className="relative isolate section bg-paper-2" aria-labelledby="products-title">
+          <SectionGlitter tone="light" />
           <div className="wrap grid gap-14 md:grid-cols-12">
             <div className="md:col-span-5">
               <SectionLabel index="03" label="K76 Products" className="mb-10" />
@@ -156,7 +160,8 @@ export default function ServicesPage() {
         </section>
 
         {/* Industries */}
-        <section data-nav-theme="light" className="bg-paper py-20 md:py-28" aria-labelledby="industries-title">
+        <section data-nav-theme="light" className="relative isolate bg-paper py-20 md:py-28" aria-labelledby="industries-title">
+          <SectionGlitter tone="light" />
           <div className="wrap">
             <h2 id="industries-title" className="t-label text-ink/50">
               Industries we serve
@@ -181,7 +186,8 @@ export default function ServicesPage() {
 
         <Process tone="dark" />
 
-        <section data-nav-theme="light" className="section bg-paper">
+        <section data-nav-theme="light" className="relative isolate section bg-paper">
+          <SectionGlitter tone="light" />
           <div className="wrap flex flex-col items-start gap-10 md:flex-row md:items-end md:justify-between">
             <h2 className="t-h2 max-w-[12ch] uppercase">Have a project in mind?</h2>
             <Button to="/contact" variant="lime" size="lg" icon={<ArrowUpRight size={18} />}>

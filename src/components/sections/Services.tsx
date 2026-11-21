@@ -12,6 +12,7 @@ import { useIsDesktop } from '../../hooks/useMediaQuery'
 import { SectionLabel } from '../common/SectionLabel'
 import { SplitText } from '../common/SplitText'
 import { VerticalGlyph } from './VerticalGlyph'
+import { SectionGlitter } from '../common/GlitterField'
 
 function ServiceItem({ label, n }: { label: string; n: number }) {
   const textRef = useRef<HTMLSpanElement>(null)
@@ -68,9 +69,9 @@ export function Services() {
       )
       revealSplit(el.querySelector('[data-services-title]')!, { stagger: 0.08 })
       el.querySelectorAll<HTMLElement>('[data-vertical]').forEach((v) => {
-        gsap.from(v.querySelectorAll('[data-v-rise]'), {
-          y: 50,
-          autoAlpha: 0,
+        gsap.fromTo(v.querySelectorAll('[data-v-rise]'), { y: 50, autoAlpha: 0 }, {
+          y: 0,
+          autoAlpha: 1,
           stagger: 0.07,
           duration: 1.1,
           scrollTrigger: { trigger: v, start: 'top 78%', once: true },
@@ -102,8 +103,9 @@ export function Services() {
       ref={root}
       data-nav-theme="dark"
       aria-labelledby="services-title"
-      className="on-dark grain section relative"
+      className="isolate on-dark grain section relative"
     >
+      <SectionGlitter tone="dark" />
       <div className="wrap">
         <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">

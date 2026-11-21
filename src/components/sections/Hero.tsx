@@ -8,6 +8,7 @@ import { useSectionNav } from '../../hooks/useSectionNav'
 import { Button } from '../common/Button'
 import { LOGO } from '../common/BrandMark'
 import { SplitText } from '../common/SplitText'
+import { SectionGlitter } from '../common/GlitterField'
 
 const TICKS = 76
 const TICK_COLORS = ['var(--lime)', 'var(--cobalt)', 'var(--iris)', 'var(--lime)']
@@ -168,8 +169,9 @@ export function Hero() {
       ref={root}
       data-nav-theme="light"
       aria-labelledby="hero-title"
-      className="grain relative flex min-h-[100svh] flex-col overflow-hidden bg-paper pt-[calc(var(--nav-h)+1.5rem)]"
+      className="isolate grain relative flex min-h-[100svh] flex-col overflow-clip bg-paper pt-[calc(var(--nav-h)+1.5rem)]"
     >
+      <SectionGlitter tone="light" />
       {/* Column grid */}
       <div data-hero-grid aria-hidden="true" className="pointer-events-none absolute inset-0 -top-[10%] h-[120%]">
         <div className="wrap grid h-full grid-cols-4 md:grid-cols-12">
@@ -185,17 +187,17 @@ export function Hero() {
           <br />
           Software · Marketing · Brand · AI · Learn
         </p>
-        <p data-hero-fade className="t-label hidden text-right text-ink/55 sm:block">
+        <p data-hero-fade className="t-label hidden text-right text-ink/55 sm:block [@media(max-height:520px)]:sm:hidden">
           Chennai / Tenkasi — India
           <br />
           <span className="t-index">IST {time}</span>
         </p>
       </div>
 
-      <div className="wrap relative flex flex-1 flex-col justify-center py-10 md:py-0">
+      <div className="wrap relative flex flex-1 flex-col justify-center py-10 md:py-0 [@media(max-height:520px)]:py-6">
         <div
           data-hero-visual-wrap
-          className="pointer-events-none absolute right-[var(--gutter)] top-0 w-[34vw] max-w-[540px] translate-y-0 text-ink/70 sm:w-[40vw] md:top-1/2 md:-translate-y-1/2 lg:w-[28vw]"
+          className="pointer-events-none relative mb-6 w-[min(36vw,160px)] max-w-[540px] self-end text-ink/70 md:absolute md:right-[var(--gutter)] md:top-1/2 md:mb-0 md:w-[min(34vw,42svh)] md:-translate-y-1/2 lg:w-[min(28vw,60svh)]"
         >
           <div data-hero-visual className="aspect-square">
             <HeroVisual />
@@ -213,10 +215,10 @@ export function Hero() {
       </div>
 
       <div className="wrap relative grid gap-8 pb-8 md:grid-cols-12 md:items-end md:pb-10">
-        <p data-hero-fade className="t-lead max-w-md text-pretty text-ink/75 md:col-span-5">
+        <p data-hero-fade className="t-lead max-w-md text-pretty text-ink/75 md:col-span-4 lg:col-span-5">
           We combine technology, creativity and strategy to build businesses that move forward.
         </p>
-        <div data-hero-fade className="flex flex-wrap gap-3 md:col-span-4">
+        <div data-hero-fade className="flex flex-wrap gap-3 md:col-span-6 lg:col-span-4">
           <Button variant="ink" size="lg" icon={<ArrowUpRight size={18} />} onClick={() => goTo('contact')}>
             Start a project
           </Button>
@@ -228,7 +230,7 @@ export function Hero() {
           type="button"
           data-hero-fade
           onClick={() => goTo('intro')}
-          className="group hidden items-center justify-end gap-4 md:col-span-3 md:flex"
+          className="group hidden items-center justify-end gap-4 md:col-span-2 md:flex lg:col-span-3"
           aria-label="Scroll to introduction"
         >
           <span className="t-label text-ink/55">Scroll</span>

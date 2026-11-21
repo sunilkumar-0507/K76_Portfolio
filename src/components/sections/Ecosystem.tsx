@@ -44,15 +44,15 @@ const PARTS: Array<{ id: NodeId; index: string; title: string; role: string; bod
 const LAYOUTS = {
   desktop: {
     w: 1200,
-    h: 720,
-    core: [600, 410] as Pt,
-    nodes: { learn: [600, 120], solutions: [170, 590], products: [1030, 590] } as Record<NodeId, Pt>,
+    h: 650,
+    core: [600, 350] as Pt,
+    nodes: { learn: [600, 70], solutions: [170, 530], products: [1030, 530] } as Record<NodeId, Pt>,
   },
   mobile: {
     w: 400,
-    h: 860,
-    core: [200, 410] as Pt,
-    nodes: { learn: [200, 100], solutions: [80, 740], products: [320, 740] } as Record<NodeId, Pt>,
+    h: 790,
+    core: [200, 370] as Pt,
+    nodes: { learn: [200, 70], solutions: [80, 680], products: [320, 680] } as Record<NodeId, Pt>,
   },
 }
 
@@ -155,9 +155,9 @@ export function Ecosystem() {
         el.addEventListener('pointerleave', onLeave)
       }
 
-      gsap.from(el.querySelectorAll('[data-eco-col]'), {
-        y: 40,
-        autoAlpha: 0,
+      gsap.fromTo(el.querySelectorAll('[data-eco-col]'), { y: 40, autoAlpha: 0 }, {
+        y: 0,
+        autoAlpha: 1,
         stagger: 0.1,
         scrollTrigger: { trigger: el.querySelector('[data-eco-cols]'), start: 'top 85%', once: true },
       })
@@ -190,7 +190,7 @@ export function Ecosystem() {
       ref={root}
       data-nav-theme="dark"
       aria-labelledby="eco-title"
-      className="on-dark section relative overflow-hidden bg-[#0b0b0b]"
+      className="on-dark relative overflow-hidden bg-[#0b0b0b] py-[clamp(4.5rem,8vw,7.5rem)]"
     >
       <div aria-hidden="true" className="absolute inset-0">
         <GlitterField density={1} intensity={0.85} />
@@ -210,7 +210,7 @@ export function Ecosystem() {
           </p>
         </div>
 
-        <div className="relative mx-auto mt-16 w-full max-w-[1200px] md:mt-24" style={{ aspectRatio: `${L.w} / ${L.h}` }}>
+        <div className="relative mx-auto mt-8 w-full max-w-[1200px] md:mt-10" style={{ aspectRatio: `${L.w} / ${L.h}` }}>
           <svg viewBox={`0 0 ${L.w} ${L.h}`} className="absolute inset-0 h-full w-full overflow-visible" aria-hidden="true" fill="none">
             <defs>
               <filter id="eco-glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -376,19 +376,18 @@ export function Ecosystem() {
           })}
         </div>
 
-        <div data-eco-cols className="mt-20 grid gap-10 border-t border-paper/15 pt-10 md:mt-28 md:grid-cols-3">
+        <div data-eco-cols className="mt-14 grid gap-10 border-t border-paper/15 pt-8 md:mt-16 md:grid-cols-3">
           {PARTS.map((p) => (
-            <div
-              key={p.id}
-              data-eco-col
-              className={`transition-opacity duration-500 ${focus && focus !== p.id ? 'opacity-40' : 'opacity-100'}`}
-            >
-              <p className="flex items-center gap-2 text-sm text-paper/45">
-                <span className="h-2.5 w-2.5" style={{ background: GLOW[p.id] }} aria-hidden="true" />
-                <span className="t-index">{p.index}</span>
-              </p>
-              <h3 className="mt-3 font-display text-xl font-medium tracking-[-0.02em]">{p.title}</h3>
-              <p className="mt-3 max-w-sm text-sm text-paper/65">{p.body}</p>
+            <div key={p.id} data-eco-col>
+              {/* hover dimming lives on an inner element so it never fights the GSAP reveal */}
+              <div className={`transition-opacity duration-500 ${focus && focus !== p.id ? 'opacity-40' : 'opacity-100'}`}>
+                <p className="flex items-center gap-2 text-sm text-paper/45">
+                  <span className="h-2.5 w-2.5" style={{ background: GLOW[p.id] }} aria-hidden="true" />
+                  <span className="t-index">{p.index}</span>
+                </p>
+                <h3 className="mt-3 font-display text-xl font-medium tracking-[-0.02em]">{p.title}</h3>
+                <p className="mt-3 max-w-sm text-sm text-paper/65">{p.body}</p>
+              </div>
             </div>
           ))}
         </div>

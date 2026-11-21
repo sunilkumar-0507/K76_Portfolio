@@ -11,6 +11,7 @@ import { organizationJsonLd, Seo } from '../components/common/Seo'
 import { ABOUT, FIGURES, FOUNDER, LEADERSHIP, MILESTONES, VALUES } from '../data/company'
 import { useGsap } from '../hooks/useGsap'
 import { SITE } from '../utils/constants'
+import { SectionGlitter } from '../components/common/GlitterField'
 
 const aboutJsonLd = {
   '@context': 'https://schema.org',
@@ -64,7 +65,8 @@ export default function AboutPage() {
           aside={`Since ${SITE.founded} · Chennai & Tenkasi`}
         />
 
-        <section data-nav-theme="light" className="bg-paper pb-[var(--section-y)]" aria-labelledby="story-title">
+        <section data-nav-theme="light" className="relative isolate bg-paper pb-[var(--section-y)]" aria-labelledby="story-title">
+          <SectionGlitter tone="light" />
           <div data-reveal-group className="wrap grid gap-12 border-t border-ink/15 pt-16 md:grid-cols-12">
             <div data-reveal className="md:col-span-4">
               <SectionLabel index="01" label="Our story" />
@@ -93,7 +95,8 @@ export default function AboutPage() {
         </section>
 
         {/* Mission / vision / promise */}
-        <section data-nav-theme="dark" className="on-dark grain section" aria-labelledby="mvp-title">
+        <section data-nav-theme="dark" className="relative isolate on-dark grain section" aria-labelledby="mvp-title">
+          <SectionGlitter tone="dark" />
           <div className="wrap">
             <SectionLabel index="02" label="What drives us" tone="dark" className="mb-10" />
             <h2 id="mvp-title" className="sr-only">
@@ -125,7 +128,8 @@ export default function AboutPage() {
         </section>
 
         {/* Values */}
-        <section data-nav-theme="light" className="section bg-paper" aria-labelledby="values-title">
+        <section data-nav-theme="light" className="relative isolate section bg-paper" aria-labelledby="values-title">
+          <SectionGlitter tone="light" />
           <div className="wrap grid gap-14 md:grid-cols-12">
             <div className="md:col-span-4">
               <SectionLabel index="03" label="Core values" className="mb-10" />
@@ -146,7 +150,8 @@ export default function AboutPage() {
         </section>
 
         {/* Leadership */}
-        <section data-nav-theme="light" className="section bg-paper-2" aria-labelledby="team-title">
+        <section data-nav-theme="light" className="relative isolate section bg-paper-2" aria-labelledby="team-title">
+          <SectionGlitter tone="light" />
           <div className="wrap">
             <SectionLabel index="04" label="Leadership" className="mb-10" />
             <h2 id="team-title" className="t-h2 max-w-[16ch] uppercase">
@@ -174,7 +179,8 @@ export default function AboutPage() {
         </section>
 
         {/* Milestones */}
-        <section data-nav-theme="light" className="section overflow-hidden bg-paper" aria-labelledby="milestones-title">
+        <section data-nav-theme="light" className="relative isolate section overflow-clip bg-paper" aria-labelledby="milestones-title">
+          <SectionGlitter tone="light" />
           <div className="wrap">
             <SectionLabel index="05" label="Milestones" className="mb-10" />
             <h2 id="milestones-title" className="t-h2 uppercase">

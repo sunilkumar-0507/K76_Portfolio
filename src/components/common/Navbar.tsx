@@ -8,6 +8,7 @@ import { useLenis } from '../../hooks/useLenis'
 import { useSectionNav } from '../../hooks/useSectionNav'
 import { SITE } from '../../utils/constants'
 import { BrandMark } from './BrandMark'
+import { GlitterField } from './GlitterField'
 
 const ease = [0.76, 0, 0.24, 1] as const
 
@@ -218,11 +219,14 @@ export function Navbar() {
             role="dialog"
             aria-modal="true"
             aria-label="Site navigation"
-            className="on-dark fixed inset-0 z-[65] flex flex-col overflow-y-auto pt-[calc(var(--nav-h)+2rem)] lg:hidden"
+            className="on-dark fixed inset-0 isolate z-[65] flex flex-col overflow-y-auto pt-[calc(var(--nav-h)+2rem)] lg:hidden"
             initial={{ clipPath: 'inset(0% 0% 100% 0%)' }}
             animate={{ clipPath: 'inset(0% 0% 0% 0%)', transition: { duration: reduce ? 0 : 0.8, ease } }}
             exit={{ clipPath: 'inset(0% 0% 100% 0%)', transition: { duration: reduce ? 0 : 0.6, ease, delay: 0.1 } }}
           >
+            <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
+              <GlitterField tone="dark" density={1.2} intensity={0.9} />
+            </div>
             <ul className="wrap flex flex-col">
               {NAV_ITEMS.map((item, i) => {
                 const active = isActive(item.section, item.route)

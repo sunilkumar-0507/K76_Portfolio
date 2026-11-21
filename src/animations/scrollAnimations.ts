@@ -29,9 +29,10 @@ export function revealSplit(
 
 /** Fade-and-rise for blocks; staggered when several targets are passed. */
 export function riseIn(targets: Targets, trigger: Element, opts: { stagger?: number; y?: number; start?: string } = {}) {
-  return gsap.from(targets, {
-    y: opts.y ?? 40,
-    autoAlpha: 0,
+  // fromTo with explicit end values: never depends on whatever state the element is in when created.
+  return gsap.fromTo(targets, { y: opts.y ?? 40, autoAlpha: 0 }, {
+    y: 0,
+    autoAlpha: 1,
     duration: 1,
     stagger: opts.stagger ?? 0.08,
     ease: 'expo.out',

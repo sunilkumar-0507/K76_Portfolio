@@ -6,6 +6,7 @@ import { ABOUT, FIGURES } from '../../data/company'
 import { useGsap } from '../../hooks/useGsap'
 import { SectionLabel } from '../common/SectionLabel'
 import { SplitText } from '../common/SplitText'
+import { SectionGlitter } from '../common/GlitterField'
 
 export function Introduction() {
   const root = useRef<HTMLElement>(null)
@@ -55,7 +56,8 @@ export function Introduction() {
   }, root)
 
   return (
-    <section id="intro" ref={root} data-nav-theme="light" className="section bg-paper" aria-labelledby="intro-heading">
+    <section id="intro" ref={root} data-nav-theme="light" className="relative isolate section bg-paper" aria-labelledby="intro-heading">
+      <SectionGlitter tone="light" />
       <div className="wrap">
         <SectionLabel index="01" label="Introduction" className="mb-14 md:mb-20" />
 
