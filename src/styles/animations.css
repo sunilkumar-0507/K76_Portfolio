@@ -93,3 +93,23 @@
     animation: none;
   }
 }
+
+/* Ecosystem core: slow-turning aurora in the K76 logo colours */
+@keyframes aurora-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.eco-aurora {
+  background: conic-gradient(
+    from 0deg,
+    rgb(157 195 59 / 0.75),
+    rgb(46 98 222 / 0.75),
+    rgb(130 74 224 / 0.75),
+    rgb(157 195 59 / 0.75)
+  );
+  -webkit-mask-image: radial-gradient(circle, #000 25%, transparent 68%);
+  mask-image: radial-gradient(circle, #000 25%, transparent 68%);
+  animation: aurora-spin 14s linear infinite;
+}

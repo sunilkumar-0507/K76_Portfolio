@@ -179,7 +179,7 @@ export default function ServicesPage() {
           <p className="sr-only">{INDUSTRIES.join(', ')}</p>
         </section>
 
-        <Process />
+        <Process tone="dark" />
 
         <section data-nav-theme="light" className="section bg-paper">
           <div className="wrap flex flex-col items-start gap-10 md:flex-row md:items-end md:justify-between">

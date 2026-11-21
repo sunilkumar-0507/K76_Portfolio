@@ -6,7 +6,8 @@ import { useGsap } from '../../hooks/useGsap'
 import { SectionLabel } from '../common/SectionLabel'
 import { SplitText } from '../common/SplitText'
 
-export function Process() {
+export function Process({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
+  const dark = tone === 'dark'
   const root = useRef<HTMLElement>(null)
   const [active, setActive] = useState(0)
 
@@ -47,9 +48,16 @@ export function Process() {
   }, root)
 
   return (
-    <section id="process" ref={root} data-nav-theme="dark" aria-labelledby="process-title" className="on-dark grain section">
+    <section
+      id="process"
+      ref={root}
+      data-nav-theme={tone}
+      data-tone={tone}
+      aria-labelledby="process-title"
+      className={`grain section ${dark ? 'on-dark' : 'bg-paper text-ink'}`}
+    >
       <div className="wrap">
-        <SectionLabel index="03" label="Our approach" tone="dark" className="mb-10" />
+        <SectionLabel index="03" label="Our approach" tone={tone} className="mb-10" />
         <div data-process-title>
           <SplitText as="h2" id="process-title" by="line" text={'From first call\nto compounding.'} className="t-h2 uppercase" />
         </div>
@@ -66,22 +74,26 @@ export function Process() {
                   {PROCESS.map((p) => (
                     <p
                       key={p.index}
-                      className="t-index font-display text-[clamp(10rem,18vw,17rem)] font-medium leading-none tracking-[-0.07em] text-lime"
+                      className={`t-index font-display text-[clamp(10rem,18vw,17rem)] font-medium leading-none tracking-[-0.07em] ${dark ? 'text-lime' : 'text-cobalt'}`}
                     >
                       {p.index}
                     </p>
                   ))}
                 </div>
               </div>
-              <p className="t-label mt-6 text-paper/50">
+              <p className={`t-label mt-6 ${dark ? 'text-paper/50' : 'text-ink/50'}`}>
                 Stage {PROCESS[active].index} of 0{PROCESS.length} — {PROCESS[active].title}
               </p>
             </div>
           </div>
 
           <ol data-steps className="relative lg:col-span-7">
-            <span aria-hidden="true" className="absolute bottom-0 left-[7px] top-0 w-px bg-paper/15">
-              <span data-progress className="absolute inset-0 origin-top bg-lime" />
+            <span aria-hidden="true" className={`absolute bottom-0 left-[7px] top-0 w-px ${dark ? 'bg-paper/15' : 'bg-ink/15'}`}>
+              <span
+                data-progress
+                className="absolute inset-0 origin-top"
+                style={{ background: 'linear-gradient(to bottom, var(--lime) 0 33.33%, var(--cobalt) 33.33% 66.66%, var(--iris) 66.66% 100%)' }}
+              />
             </span>
             {PROCESS.map((p) => (
               <li
@@ -91,12 +103,12 @@ export function Process() {
               >
                 <span
                   aria-hidden="true"
-                  className="process-dot absolute left-0 top-2 h-[15px] w-[15px] rounded-full border border-paper/40 bg-char transition-colors duration-500"
+                  className={`process-dot absolute left-0 top-2 h-[15px] w-[15px] rounded-full border transition-colors duration-500 ${dark ? 'border-paper/40 bg-char' : 'border-ink/30 bg-paper'}`}
                 />
-                <span className="t-index text-sm text-paper/45 md:col-span-2">{p.index}</span>
+                <span className={`t-index text-sm md:col-span-2 ${dark ? 'text-paper/45' : 'text-ink/45'}`}>{p.index}</span>
                 <div className="md:col-span-10">
                   <h3 className="process-title t-h3 uppercase transition-colors duration-500">{p.title}</h3>
-                  <p className="process-body mt-4 max-w-md text-paper/60 transition-opacity duration-500">{p.body}</p>
+                  <p className={`process-body mt-4 max-w-md transition-opacity duration-500 ${dark ? 'text-paper/60' : 'text-ink/65'}`}>{p.body}</p>
                 </div>
               </li>
             ))}
@@ -105,16 +117,21 @@ export function Process() {
       </div>
 
       <style>{`
+        #process { --step-dim: rgb(245 243 237 / .3); --step-on: var(--paper); --step-past: rgb(245 243 237 / .6) }
+        #process[data-tone="light"] { --step-dim: rgb(23 23 23 / .28); --step-on: var(--ink); --step-past: rgb(23 23 23 / .6) }
         @media (prefers-reduced-motion: no-preference) {
-          .process-step .process-title { color: rgb(245 243 237 / .3) }
+          .process-step .process-title { color: var(--step-dim) }
           .process-step .process-body { opacity: .35 }
         }
-        .process-step[data-state="active"] .process-title { color: var(--paper) }
+        .process-step[data-state="active"] .process-title { color: var(--step-on) }
         .process-step[data-state="active"] .process-body { opacity: 1 }
-        .process-step[data-state="past"] .process-title { color: rgb(245 243 237 / .6) }
+        .process-step[data-state="past"] .process-title { color: var(--step-past) }
         .process-step[data-state="past"] .process-body { opacity: .6 }
+        .process-step:nth-child(3n+2)[data-state] .process-dot { --dot: var(--lime) }
+        .process-step:nth-child(3n+3)[data-state] .process-dot { --dot: var(--cobalt) }
+        .process-step:nth-child(3n+4)[data-state] .process-dot { --dot: var(--iris) }
         .process-step[data-state="active"] .process-dot,
-        .process-step[data-state="past"] .process-dot { background: var(--lime); border-color: var(--lime) }
+        .process-step[data-state="past"] .process-dot { background: var(--dot, var(--lime)); border-color: var(--dot, var(--lime)) }
       `}</style>
     </section>
   )
