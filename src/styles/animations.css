@@ -1,0 +1,95 @@
+@layer components {
+/* Line masks used by SplitText — the inner span slides up from below the mask. */
+.split-line {
+  display: block;
+  overflow: hidden;
+  /* room for descenders and tight display leading */
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+.split-word,
+.split-char {
+  display: inline-block;
+  will-change: transform;
+}
+
+.split-word {
+  white-space: nowrap;
+}
+
+/* Rolling label: two stacked copies, swap on hover */
+.roll {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  line-height: 1.15;
+}
+
+.roll > span {
+  display: block;
+  transition: transform 0.55s var(--ease-out);
+}
+
+.roll > span:last-child {
+  position: absolute;
+  inset: 0;
+  transform: translateY(105%);
+}
+
+.roll-host:hover .roll > span:first-child,
+.roll-host:focus-visible .roll > span:first-child {
+  transform: translateY(-105%);
+}
+
+.roll-host:hover .roll > span:last-child,
+.roll-host:focus-visible .roll > span:last-child {
+  transform: translateY(0);
+}
+
+/* Hero scroll cue */
+@keyframes cue-drop {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(260%);
+  }
+}
+
+.cue-dot {
+  animation: cue-drop 2.2s var(--ease-in-out) infinite;
+}
+
+/* Infinite marquee */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+}

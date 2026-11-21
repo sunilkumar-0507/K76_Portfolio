@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://k76.in/sitemap.xml
