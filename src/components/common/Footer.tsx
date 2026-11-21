@@ -124,7 +124,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-20 grid gap-8 border-t border-paper/10 pt-10 sm:grid-cols-3">
+        <div className="mt-20 grid gap-8 border-t border-paper/10 pt-10 sm:grid-cols-2 lg:grid-cols-3">
           {OFFICES.map((o) => (
             <address key={o.label} className="not-italic">
               <p className="t-label mb-3 text-lime">{o.label}</p>

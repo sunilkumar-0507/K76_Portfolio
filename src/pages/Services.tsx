@@ -107,7 +107,7 @@ export default function ServicesPage() {
 
             <div data-reveal-group className="mt-16 grid gap-px bg-ink/15 sm:grid-cols-2 lg:grid-cols-3">
               {COURSES.map((c) => (
-                <article key={c.title} data-reveal className="group flex min-h-64 flex-col bg-paper p-8 transition-colors duration-500 hover:bg-cobalt hover:text-paper">
+                <article key={c.title} data-reveal className="group flex min-h-44 flex-col bg-paper p-6 sm:min-h-64 sm:p-8 transition-colors duration-500 hover:bg-cobalt hover:text-paper">
                   <span className="t-label text-ink/45 group-hover:text-paper/80">{c.weeks} weeks</span>
                   <h3 className="mt-auto font-display text-3xl font-medium uppercase leading-none tracking-[-0.04em]">{c.title}</h3>
                   <p className="mt-3 text-sm text-ink/60 group-hover:text-paper/65">{c.topics}</p>

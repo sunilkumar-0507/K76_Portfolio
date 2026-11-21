@@ -50,7 +50,7 @@ const LAYOUTS = {
   },
   mobile: {
     w: 400,
-    h: 790,
+    h: 870,
     core: [200, 370] as Pt,
     nodes: { learn: [200, 70], solutions: [80, 680], products: [320, 680] } as Record<NodeId, Pt>,
   },
@@ -340,25 +340,28 @@ export function Ecosystem() {
             const pos = pct(L.nodes[p.id])
             const placement =
               p.id === 'learn'
-                ? 'translate-x-6 -translate-y-1/2 md:translate-x-8'
+                ? 'translate-x-6 -translate-y-1/2 text-left md:translate-x-8'
                 : p.id === 'solutions'
-                  ? '-translate-x-[10%] translate-y-8 md:translate-x-0 md:translate-y-10'
-                  : '-translate-x-[90%] translate-y-8 md:-translate-x-full md:translate-y-10'
+                  ? '-translate-x-1/2 translate-y-10 text-center md:translate-x-0 md:translate-y-10 md:text-left'
+                  : '-translate-x-1/2 translate-y-10 text-center md:-translate-x-full md:translate-y-10 md:text-left'
             return (
               <button
                 key={p.id}
                 type="button"
-                data-eco-label
                 onPointerEnter={() => setFocus(p.id)}
                 onPointerLeave={() => setFocus(null)}
                 onFocus={() => setFocus(p.id)}
                 onBlur={() => setFocus(null)}
                 onClick={() => setFocus((f) => (f === p.id ? null : p.id))}
                 aria-pressed={focus === p.id}
-                className={`absolute w-max max-w-[44vw] text-left md:max-w-none ${placement}`}
+                className={`absolute w-max max-w-[34vw] md:max-w-none ${placement}`}
                 style={pos}
               >
-                <span className="flex items-center gap-2 text-xs text-paper/45">
+                {/* Positioning stays on the button; GSAP animates this inner wrapper so it can't override the offsets */}
+                <span data-eco-label className="block">
+                <span
+                  className={`flex items-center gap-2 text-xs text-paper/45 ${p.id === 'learn' ? '' : 'justify-center md:justify-start'}`}
+                >
                   <span className="h-2 w-2" style={{ background: GLOW[p.id] }} aria-hidden="true" />
                   <span className="t-index">{p.index}</span>
                 </span>
@@ -371,6 +374,7 @@ export function Ecosystem() {
                   {p.title.replace('K76 ', '')}
                 </span>
                 <span className="t-label mt-1.5 block text-paper/50">{p.role}</span>
+                </span>
               </button>
             )
           })}

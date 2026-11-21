@@ -31,7 +31,7 @@ function Logo({ dark }: { dark: boolean }) {
 }
 
 export function Navbar() {
-  const { activeSection, menuOpen, setMenuOpen } = useAppState()
+  const { activeSection, menuOpen, setMenuOpen, introDone } = useAppState()
   const { pathname } = useLocation()
   const lenis = useLenis()
   const goTo = useSectionNav()
@@ -76,7 +76,7 @@ export function Navbar() {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
     }
-  }, [pathname])
+  }, [pathname, introDone])
 
   // Menu: lock scroll, Escape to close, manage focus.
   useEffect(() => {

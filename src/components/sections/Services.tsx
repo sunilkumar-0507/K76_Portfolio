@@ -27,9 +27,16 @@ function ServiceItem({ label, n }: { label: string; n: number }) {
       >
         <span className="t-index w-7 text-xs text-paper/35">{String(n).padStart(2, '0')}</span>
         <span ref={textRef} className="flex-1 font-display text-[clamp(1.1rem,1.7vw,1.6rem)] tracking-[-0.02em]" aria-label={label}>
-          {Array.from(label).map((c, i) => (
-            <span key={i} className="ch inline-block whitespace-pre" aria-hidden="true">
-              {c}
+          {label.split(' ').map((word, wi, words) => (
+            <span key={wi} aria-hidden="true">
+              <span className="inline-block whitespace-nowrap">
+                {Array.from(word).map((c, i) => (
+                  <span key={i} className="ch inline-block">
+                    {c}
+                  </span>
+                ))}
+              </span>
+              {wi < words.length - 1 ? ' ' : null}
             </span>
           ))}
         </span>

@@ -35,12 +35,6 @@ export const OFFICES: Office[] = [
     postalCode: '603110',
   },
   {
-    label: 'Chennai — Velachery',
-    lines: ['No 280, Velachery Main Road', 'Rajakilpakkam'],
-    city: 'Chennai',
-    postalCode: '600073',
-  },
-  {
     label: 'Tenkasi',
     lines: ['Arunachalapuram', 'Kadayanallur Taluk'],
     city: 'Tenkasi',

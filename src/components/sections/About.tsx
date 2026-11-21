@@ -69,8 +69,11 @@ export function About() {
               as="p"
               by="line"
               text={'Technology should empower businesses\nto grow faster — not become another\nproblem to manage.'}
-              className="font-display text-[clamp(1.6rem,3.6vw,3.6rem)] font-medium leading-[1.02] tracking-[-0.035em]"
+              className="hidden font-display text-[clamp(1.6rem,3.6vw,3.6rem)] font-medium leading-[1.02] tracking-[-0.035em] md:block"
             />
+            <p className="font-display text-[1.6rem] font-medium leading-[1.1] tracking-[-0.03em] text-pretty md:hidden">
+              {FOUNDER.quote}
+            </p>
           </blockquote>
           <figcaption className="md:col-span-9 md:col-start-2">
             <span className="block font-display text-lg font-medium">{FOUNDER.name}</span>
