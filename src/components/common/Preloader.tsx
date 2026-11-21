@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from 'react'
-import { animate, stagger, utils } from 'animejs'
+import { animate } from 'animejs'
 import { revertAll } from '../../animations/animeAnimations'
 import { gsap, prefersReducedMotion } from '../../animations/gsapConfig'
 import { useLenis } from '../../hooks/useLenis'
@@ -63,13 +63,16 @@ export function Preloader({ onDone }: { onDone: () => void }) {
       }
     }
 
-    // Logo assembles: tile scales in, then each colour shard slides into place.
-    const shards = el.querySelectorAll<SVGElement>('[data-shard]')
-    const offsets = [[-14, -12], [14, -10], [-18, 16], [10, 18], [16, -16], [0, 12]]
-    shards.forEach((sh, i) => utils.set(sh, { translateX: offsets[i]?.[0] ?? 0, translateY: offsets[i]?.[1] ?? 0, opacity: 0 }))
+    // The logo rises out of a mask and settles from a slight zoom.
+    const mark = el.querySelector<HTMLElement>('[data-pl-mark] picture')!
     const anims: Array<{ revert: () => unknown } | undefined> = [
-      animate(el.querySelector('[data-pl-mark] svg')!, { scale: [0.7, 1], opacity: [0, 1], duration: 900, ease: 'outExpo' }),
-      animate(shards, { translateX: 0, translateY: 0, opacity: 1, duration: 900, delay: stagger(110, { start: 250 }), ease: 'outExpo' }),
+      animate(mark, {
+        clipPath: ['inset(100% 0% 0% 0% round 14%)', 'inset(0% 0% 0% 0% round 14%)'],
+        scale: [1.18, 1],
+        duration: 1100,
+        delay: 150,
+        ease: 'inOutQuart',
+      }),
     ]
 
     // Readiness: fonts + load event, capped so the intro never drags.
@@ -141,7 +144,7 @@ export function Preloader({ onDone }: { onDone: () => void }) {
       </div>
 
       <div data-pl-mark className="mx-auto w-[min(42vw,220px)]">
-        <BrandMark />
+        <BrandMark eager className="block" />
       </div>
 
       <div className="flex items-end justify-between overflow-hidden">

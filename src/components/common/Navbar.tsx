@@ -14,7 +14,7 @@ const ease = [0.76, 0, 0.24, 1] as const
 function Logo({ dark }: { dark: boolean }) {
   return (
     <span className="flex items-center gap-3">
-      <BrandMark className="h-9 w-9 shrink-0" title="" />
+      <BrandMark className="block h-9 w-9 shrink-0" title="" small eager />
       <span className="font-display text-[1.45rem] font-bold leading-none tracking-[-0.06em]">K76</span>
       <span
         className={`hidden border-l pl-3 text-[0.68rem] font-medium uppercase leading-[1.15] tracking-[0.14em] md:block ${

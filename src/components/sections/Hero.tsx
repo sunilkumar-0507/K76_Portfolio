@@ -7,7 +7,7 @@ import { useGsap } from '../../hooks/useGsap'
 import { useSectionNav } from '../../hooks/useSectionNav'
 import { brandColor } from '../../utils/constants'
 import { Button } from '../common/Button'
-import { BrandMarkShapes } from '../common/BrandMark'
+import { LOGO } from '../common/BrandMark'
 import { SplitText } from '../common/SplitText'
 
 const TICKS = 76
@@ -72,9 +72,7 @@ function HeroVisual() {
       </g>
       <g data-depth="0.7">
         <g data-block>
-          <g transform="translate(-68 -68) scale(1.36)">
-            <BrandMarkShapes clipId="hero-mark" />
-          </g>
+          <image href={LOGO.webp} x="-70" y="-70" width="140" height="140" preserveAspectRatio="xMidYMid meet" />
         </g>
       </g>
       <g data-depth="1" stroke="currentColor" strokeWidth="1">

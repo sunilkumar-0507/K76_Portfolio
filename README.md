@@ -10,6 +10,16 @@ npm run build          # type-check + production build → dist/
 npm run preview
 ```
 
+## Brand assets
+
+The original logo is `public/brand/k76-logo.jpeg`. Every other logo file is cut from those same pixels
+(cropped to the tile, corners made transparent):
+
+- `brand/k76-mark.webp` / `.png` (388px) and `brand/k76-mark-160.webp` / `.png`, used by `BrandMark`
+- `favicon-48.png`, `icon-192.png`, `apple-touch-icon.png` and `og-image.png`
+
+If the logo changes, replace the original and regenerate these files from it.
+
 ## Content
 
 All company facts live in data files. Edit these, not the components:
@@ -48,7 +58,7 @@ form never reports success unless the endpoint accepted the message. WhatsApp is
 - Each route sets its title, description, canonical URL, Open Graph and Twitter tags, and JSON-LD
   (`src/components/common/Seo.tsx`).
 - `public/robots.txt` and `public/sitemap.xml` list `/`, `/about`, `/services` and `/contact`.
-- **To do:** add `public/og-image.png` (1200×630) and set `OG_IMAGE = '/og-image.png'` in `Seo.tsx`.
+- Social preview image: `public/og-image.png` (1200×630).
 
 ## Animation system
 

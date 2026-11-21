@@ -3,7 +3,7 @@ import { NAV_ITEMS, SOCIALS } from '../../data/navigation'
 import { OFFICES, SITE } from '../../utils/constants'
 
 /** Path (in /public) of the 1200×630 social preview image, or '' if none yet. */
-const OG_IMAGE = ''
+const OG_IMAGE = '/og-image.png'
 
 interface SeoProps {
   title: string
@@ -20,7 +20,7 @@ export const organizationJsonLd = {
   name: SITE.name,
   alternateName: SITE.shortName,
   url: SITE.url,
-  logo: `${SITE.url}/favicon.svg`,
+  logo: `${SITE.url}/brand/k76-mark.png`,
   email: SITE.email,
   telephone: SITE.phoneE164,
   foundingDate: String(SITE.founded),
@@ -63,7 +63,6 @@ export const websiteJsonLd = {
 export function Seo({ title, description = SITE.description, path = '/', noindex, jsonLd }: SeoProps) {
   const url = `${SITE.url}${path === '/' ? '/' : path}`
   const fullTitle = title.includes('K76') ? title : `${title} — ${SITE.name}`
-  // Social preview image: add public/og-image.png (1200×630) and set OG_IMAGE to '/og-image.png'.
   const image = OG_IMAGE ? `${SITE.url}${OG_IMAGE}` : ''
   const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []
 
