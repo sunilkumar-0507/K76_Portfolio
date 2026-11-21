@@ -137,7 +137,7 @@ export function Ecosystem() {
       <div className="wrap">
         <div className="grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <SectionLabel index="05" label="The K76 ecosystem" className="mb-10" />
+            <SectionLabel index="04" label="The K76 ecosystem" className="mb-10" />
             <div data-eco-title>
               <SplitText as="h2" id="eco-title" by="line" text={'Three parts.\nOne system.'} className="t-h2 uppercase" />
             </div>

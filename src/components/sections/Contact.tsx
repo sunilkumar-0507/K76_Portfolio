@@ -20,7 +20,7 @@ const CHANNELS = [
   { label: 'Phone', value: SITE.phoneDisplay, href: `tel:${SITE.phoneE164}`, icon: Phone, external: false },
 ]
 
-export function Contact({ index = '07', headingLevel = 'h2' }: { index?: string; headingLevel?: 'h1' | 'h2' }) {
+export function Contact({ index = '06', headingLevel = 'h2' }: { index?: string; headingLevel?: 'h1' | 'h2' }) {
   const root = useRef<HTMLElement>(null)
 
   useGsap(() => {

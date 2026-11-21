@@ -9,7 +9,6 @@ import { Contact } from '../components/sections/Contact'
 import { Ecosystem } from '../components/sections/Ecosystem'
 import { Hero } from '../components/sections/Hero'
 import { Introduction } from '../components/sections/Introduction'
-import { Portfolio } from '../components/sections/Portfolio'
 import { Process } from '../components/sections/Process'
 import { Services } from '../components/sections/Services'
 import { NAV_ITEMS } from '../data/navigation'
@@ -25,7 +24,7 @@ function useSectionSpy() {
     const pick = () => {
       // The most specific (smallest) active section wins, e.g. "learn" inside "services".
       const best = [...active].sort((a, b) => a.offsetHeight - b.offsetHeight)[0]
-      // Between nav sections (e.g. Work, Process) keep the last highlighted item.
+      // Between nav sections (e.g. Process) keep the last highlighted item.
       if (best) setActiveSection(best.id)
     }
     const triggers = NAV_ITEMS.map((n) => document.getElementById(n.section))
@@ -62,7 +61,7 @@ export default function Home() {
     }
   }, [])
 
-  // Deep links such as /#work — wait for the intro and pin spacers.
+  // Deep links such as /#services — wait for the intro to finish.
   useEffect(() => {
     if (!introDone || !hash) return
     const t = window.setTimeout(() => {
@@ -85,7 +84,6 @@ export default function Home() {
         <Hero />
         <Introduction />
         <Services />
-        <Portfolio />
         <Process />
         <Ecosystem />
         <About />

@@ -5,23 +5,12 @@ import { gsap, isFinePointer, prefersReducedMotion } from '../../animations/gsap
 import { useAppState } from '../../hooks/useAppState'
 import { useGsap } from '../../hooks/useGsap'
 import { useSectionNav } from '../../hooks/useSectionNav'
-import { brandColor } from '../../utils/constants'
 import { Button } from '../common/Button'
 import { LOGO } from '../common/BrandMark'
 import { SplitText } from '../common/SplitText'
 
 const TICKS = 76
 const TICK_COLORS = ['var(--lime)', 'var(--cobalt)', 'var(--iris)', 'var(--lime)']
-const MARQUEE = [
-  'Custom Software',
-  'Web Platforms',
-  'CRM & ERP',
-  'Performance Marketing',
-  'Brand Identity',
-  'AI Automation',
-  'Mobile Apps',
-  'K76 Learn',
-]
 
 function useIstClock() {
   const [time, setTime] = useState('')
@@ -231,8 +220,8 @@ export function Hero() {
           <Button variant="ink" size="lg" icon={<ArrowUpRight size={18} />} onClick={() => goTo('contact')}>
             Start a project
           </Button>
-          <Button variant="outline" size="lg" onClick={() => goTo('work')}>
-            See the work
+          <Button variant="outline" size="lg" onClick={() => goTo('services')}>
+            See services
           </Button>
         </div>
         <button
@@ -252,20 +241,6 @@ export function Hero() {
         </button>
       </div>
 
-      <div data-hero-fade className="marquee relative overflow-hidden border-t border-ink/10 py-4" aria-hidden="true">
-        <div className="marquee-track flex w-max">
-          {[0, 1].map((dup) => (
-            <ul key={dup} className="flex shrink-0 items-center">
-              {MARQUEE.map((m, n) => (
-                <li key={m} className="flex items-center font-display text-sm uppercase tracking-[0.12em] text-ink/60">
-                  <span className="px-6">{m}</span>
-                  <span className="h-1.5 w-1.5" style={{ background: brandColor(n) }} />
-                </li>
-              ))}
-            </ul>
-          ))}
-        </div>
-      </div>
     </section>
   )
 }

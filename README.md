@@ -29,18 +29,7 @@ All company facts live in data files. Edit these, not the components:
 | `src/utils/constants.ts` | Name, email, phone/WhatsApp, hours, office addresses |
 | `src/data/navigation.ts` | Nav items, social links |
 | `src/data/services.ts` | Verticals, practices, K76 Learn courses, process stages, form options |
-| `src/data/projects.ts` | Portfolio projects |
 | `src/data/company.ts` | About copy, mission/vision, team, milestones, figures |
-
-### Projects
-
-`projects.ts` mirrors k76.in/portfolio exactly: client, project name, category and stack. The live site has
-no live URLs or case-study text, so:
-
-- `liveUrl` is empty. Once it's set, the "Live site" link appears automatically.
-- `description` only restates the published facts. Replace it with approved copy.
-- `image` is optional. Put a WebP/AVIF screenshot (about 1600×1000) in `public/images/projects/` and set
-  `image: { src, alt, width, height }`. Until then each project gets a typographic cover.
 
 ## Contact form
 
@@ -63,14 +52,14 @@ form never reports success unless the endpoint accepted the message. WhatsApp is
 ## Animation system
 
 - `src/animations/gsapConfig.ts`: plugin registration and shared media queries.
-- `src/animations/scrollAnimations.ts`: line reveals, word scrubbing, clip-path image reveals, parallax.
+- `src/animations/scrollAnimations.ts`: line reveals, word scrubbing, parallax.
 - `src/animations/animeAnimations.ts`: SVG stroke drawing, signal loops, counters, micro-interactions.
 - `src/hooks/useLenis.ts`: one Lenis instance driven by the GSAP ticker, so Lenis and ScrollTrigger share a
   single animation-frame loop.
 - `src/hooks/useGsap.ts`: every section animates inside a `gsap.context`, which is reverted on unmount.
 
 Reduced-motion users get static content and native scrolling. Touch devices get no custom cursor, no magnetic
-effects and no Lenis. Below 1024px the pinned horizontal portfolio becomes a vertical list.
+effects and no Lenis.
 
 ## Deploying
 

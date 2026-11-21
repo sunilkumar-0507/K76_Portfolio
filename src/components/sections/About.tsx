@@ -44,7 +44,7 @@ export function About() {
       </p>
 
       <div className="wrap relative">
-        <SectionLabel index="06" label="About K76" className="mb-10" />
+        <SectionLabel index="05" label="About K76" className="mb-10" />
 
         <div className="grid gap-12 md:grid-cols-12">
           <div data-about-title className="md:col-span-7">

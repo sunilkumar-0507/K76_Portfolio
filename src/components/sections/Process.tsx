@@ -49,7 +49,7 @@ export function Process() {
   return (
     <section id="process" ref={root} data-nav-theme="dark" aria-labelledby="process-title" className="on-dark grain section">
       <div className="wrap">
-        <SectionLabel index="04" label="Our approach" tone="dark" className="mb-10" />
+        <SectionLabel index="03" label="Our approach" tone="dark" className="mb-10" />
         <div data-process-title>
           <SplitText as="h2" id="process-title" by="line" text={'From first call\nto compounding.'} className="t-h2 uppercase" />
         </div>
