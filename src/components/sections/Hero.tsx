@@ -6,7 +6,6 @@ import { useAppState } from '../../hooks/useAppState'
 import { useGsap } from '../../hooks/useGsap'
 import { useSectionNav } from '../../hooks/useSectionNav'
 import { SITE } from '../../utils/constants'
-import { BrandShards } from '../common/BrandShards'
 import { Button } from '../common/Button'
 import { SplitText } from '../common/SplitText'
 
@@ -82,7 +81,6 @@ export function Hero() {
       const chars = el.querySelectorAll('[data-split-id="hero-title"] .split-inner')
       const fades = el.querySelectorAll('[data-hero-fade]')
       const visual = el.querySelector('[data-hero-visual]')!
-      const shards = el.querySelectorAll('[data-shard]')
       const bar = el.querySelector('[data-hero-bar]')
 
       if (reduce) return
@@ -90,7 +88,6 @@ export function Hero() {
       gsap.set(chars, { yPercent: 115, rotate: 6 })
       gsap.set(fades, { autoAlpha: 0, y: 24 })
       gsap.set(bar, { scaleX: 0 })
-      gsap.set(shards, { yPercent: 45, autoAlpha: 0 })
       gsap.set(visual, { autoAlpha: 0, scale: 0.86, rotate: -12 })
       gsap.set(el.querySelectorAll('[data-tick], [data-block]'), { opacity: 0 })
 
@@ -107,7 +104,6 @@ export function Hero() {
           anims.push(spin(el.querySelector('[data-dial]')!, 90000))
           anims.push(spin(el.querySelector('[data-orbit]')!, 24000))
         }, 0.3)
-        .to(shards, { yPercent: 0, autoAlpha: 1, duration: 1.4, stagger: 0.12, ease: 'expo.out' }, 0.35)
         .to(bar, { scaleX: 1, duration: 1, ease: 'expo.out' }, 0.75)
         .to(fades, { autoAlpha: 1, y: 0, duration: 1.1, stagger: 0.08 }, 0.7)
 
@@ -176,9 +172,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Logo shards — bottom-left corner */}
-      <BrandShards className="absolute bottom-0 left-0 -z-10 h-[clamp(4rem,min(15vw,26svh),15rem)] w-auto" />
-
       <div className="wrap relative flex items-start justify-between gap-6">
         <p data-hero-fade className="t-label max-w-[26rem] leading-[1.6] text-ink/60">
           K76 Business Solutions
@@ -192,11 +185,11 @@ export function Hero() {
         </p>
       </div>
 
-      <div className="wrap relative grid flex-1 content-center items-center gap-8 pb-[clamp(5rem,13vw,11rem)] pt-8 md:grid-cols-12 md:gap-6 md:pt-4 [@media(max-height:520px)]:pb-16">
+      <div className="wrap relative grid flex-1 content-center items-center gap-8 pb-12 pt-8 md:grid-cols-12 md:gap-4 md:pb-20 md:pt-2 [@media(max-height:520px)]:pb-10">
         {/* Visual — the K76 character inside the dial */}
         <div
           data-hero-visual-wrap
-          className="pointer-events-none relative w-[min(72vw,38svh,320px)] justify-self-center text-ink/45 md:order-last md:col-span-5 md:w-full md:max-w-[min(100%,68svh)] md:justify-self-end"
+          className="pointer-events-none relative w-[min(72vw,38svh,320px)] justify-self-center text-ink/45 md:order-last md:col-span-6 md:-ml-[4vw] md:w-[calc(100%+4vw)] md:max-w-[min(calc(100%+4vw),74svh)] md:justify-self-center"
         >
           <div data-hero-visual className="relative aspect-square">
             <HeroVisual />
@@ -220,7 +213,7 @@ export function Hero() {
         </div>
 
         {/* Copy */}
-        <div className="relative z-[1] md:col-span-7">
+        <div className="relative z-[1] md:col-span-6">
           <SplitText as="h1" id="hero-title" by="char" accent text={"Building\nwhat’s next."} className="t-display t-hero text-ink" />
           <span data-hero-bar aria-hidden="true" className="mt-6 block h-1 w-16 origin-left rounded-full bg-lime md:mt-8 md:w-20" />
           <p data-hero-fade className="t-lead mt-6 max-w-[34rem] text-pretty text-ink/75 md:mt-8">

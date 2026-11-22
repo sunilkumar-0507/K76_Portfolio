@@ -125,8 +125,8 @@ export default function ServicesPage() {
               </ul>
             </div>
             <div className="mt-12">
-              <Button to="/contact" variant="ink" icon={<ArrowUpRight size={16} />}>
-                Enquire about a cohort
+              <Button href="https://k76learn.in/" external variant="ink" icon={<ArrowUpRight size={16} />}>
+                Explore K76 Learn
               </Button>
             </div>
           </div>
