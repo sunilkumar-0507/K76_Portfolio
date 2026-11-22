@@ -11,7 +11,6 @@ import { scrollToTarget, useLenis } from '../../hooks/useLenis'
 import { useSectionNav } from '../../hooks/useSectionNav'
 import { OFFICES, SITE } from '../../utils/constants'
 import { K76Mark } from './K76Mark'
-import { SectionGlitter } from './GlitterField'
 
 export function Footer() {
   const root = useRef<HTMLElement>(null)
@@ -46,7 +45,6 @@ export function Footer() {
 
   return (
     <footer ref={root} data-nav-theme="dark" className="isolate on-dark grain relative overflow-clip pt-24 md:pt-32">
-      <SectionGlitter tone="dark" />
       <div className="wrap relative">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">

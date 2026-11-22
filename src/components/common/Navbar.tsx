@@ -8,7 +8,6 @@ import { useLenis } from '../../hooks/useLenis'
 import { useSectionNav } from '../../hooks/useSectionNav'
 import { SITE } from '../../utils/constants'
 import { BrandMark } from './BrandMark'
-import { GlitterField } from './GlitterField'
 
 const ease = [0.76, 0, 0.24, 1] as const
 
@@ -106,26 +105,35 @@ export function Navbar() {
   const onDarkBar = dark && !menuOpen
   const barSurface = scrolled
     ? onDarkBar
-      ? 'bg-char/80 border-paper/10'
-      : 'bg-paper/80 border-ink/10'
+      ? 'bg-char/40 border-paper/10'
+      : 'bg-paper/40 border-ink/5'
     : 'bg-transparent border-transparent'
+
+  // Frosted-glass pill that holds the centred menu.
+  const glass = onDarkBar
+    ? 'border-white/15 bg-white/[0.07] shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_10px_30px_-12px_rgba(0,0,0,0.6)]'
+    : 'border-white/70 bg-white/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_10px_30px_-14px_rgba(23,23,23,0.25)]'
 
   return (
     <>
       <motion.header
         ref={headerRef}
-        className={`fixed inset-x-0 top-0 z-[70] border-b backdrop-blur-md transition-[background-color,border-color,color,height] duration-500 ${barSurface} ${
+        className={`fixed inset-x-0 top-0 z-[70] border-b transition-[background-color,border-color,color,height] duration-500 ${barSurface} ${
           onDarkBar || menuOpen ? 'text-paper' : 'text-ink'
-        } ${scrolled ? 'backdrop-blur-md' : 'backdrop-blur-none'}`}
+        } ${scrolled ? 'backdrop-blur-sm' : 'backdrop-blur-none'}`}
         animate={{ y: hidden && !menuOpen ? '-100%' : '0%' }}
         transition={{ duration: reduce ? 0 : 0.6, ease }}
       >
         <nav
           aria-label="Primary"
-          className={`wrap flex items-center justify-between transition-[height] duration-500 ${scrolled ? 'h-16' : 'h-[var(--nav-h)]'}`}
+          className={`wrap flex items-center justify-between gap-4 transition-[height] duration-500 lg:grid lg:grid-cols-[1fr_auto_1fr] ${
+            scrolled ? 'h-16' : 'h-[var(--nav-h)]'
+          }`}
         >
+          {/* Left — logo */}
           <Link
             to="/"
+            className="justify-self-start"
             onClick={(e) => {
               if (pathname === '/') {
                 e.preventDefault()
@@ -137,8 +145,11 @@ export function Navbar() {
             <Logo dark={onDarkBar || menuOpen} />
           </Link>
 
-          <ul className="hidden items-center gap-1 lg:flex">
-            {NAV_ITEMS.map((item, i) => {
+          {/* Centre — menu in a glass pill */}
+          <ul
+            className={`hidden items-center gap-0.5 rounded-full border p-1 backdrop-blur-xl backdrop-saturate-150 transition-[background-color,border-color,box-shadow] duration-500 lg:flex ${glass}`}
+          >
+            {NAV_ITEMS.map((item) => {
               const active = isActive(item.section, item.route)
               return (
                 <li key={item.section}>
@@ -146,40 +157,42 @@ export function Navbar() {
                     type="button"
                     onClick={() => goTo(item.section)}
                     aria-current={active ? 'true' : undefined}
-                    className="roll-host relative flex items-center gap-1.5 rounded-full px-3.5 py-2 font-display text-[0.92rem] font-medium tracking-tight"
+                    className="roll-host relative flex items-center rounded-full px-4 py-2 font-display text-[0.9rem] font-medium tracking-tight"
                   >
-                    <span className={`t-index text-[0.6rem] ${onDarkBar ? 'text-paper/40' : 'text-ink/40'}`}>
-                      0{i + 1}
-                    </span>
-                    <span className="roll">
-                      <span>{item.label}</span>
-                      <span aria-hidden="true">{item.label}</span>
-                    </span>
                     {active ? (
                       <motion.span
                         layoutId="nav-active"
-                        className="absolute -bottom-0.5 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-lime"
+                        aria-hidden="true"
+                        className={`absolute inset-0 rounded-full ${
+                          onDarkBar ? 'bg-white/[0.12]' : 'bg-white/80 shadow-[0_1px_6px_rgba(23,23,23,0.08)]'
+                        }`}
                         transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                       />
                     ) : null}
+                    <span className="roll relative">
+                      <span>{item.label}</span>
+                      <span aria-hidden="true">{item.label}</span>
+                    </span>
                   </button>
                 </li>
               )
             })}
-            <li className="ml-3">
-              <button
-                type="button"
-                onClick={() => goTo('contact')}
-                className="roll-host group inline-flex h-10 items-center gap-2 rounded-full bg-lime px-5 font-display text-sm font-medium text-ink"
-              >
-                <span className="roll">
-                  <span>Start a project</span>
-                  <span aria-hidden="true">Start a project</span>
-                </span>
-                <ArrowUpRight size={16} className="transition-transform duration-500 group-hover:rotate-45" />
-              </button>
-            </li>
           </ul>
+
+          {/* Right — call to action (desktop) */}
+          <div className="hidden justify-self-end lg:block">
+            <button
+              type="button"
+              onClick={() => goTo('contact')}
+              className="roll-host group inline-flex h-10 items-center gap-2 rounded-full bg-lime px-5 font-display text-sm font-medium text-ink"
+            >
+              <span className="roll">
+                <span>Start a project</span>
+                <span aria-hidden="true">Start a project</span>
+              </span>
+              <ArrowUpRight size={16} className="transition-transform duration-500 group-hover:rotate-45" />
+            </button>
+          </div>
 
           <button
             ref={menuBtnRef}
@@ -224,9 +237,6 @@ export function Navbar() {
             animate={{ clipPath: 'inset(0% 0% 0% 0%)', transition: { duration: reduce ? 0 : 0.8, ease } }}
             exit={{ clipPath: 'inset(0% 0% 100% 0%)', transition: { duration: reduce ? 0 : 0.6, ease, delay: 0.1 } }}
           >
-            <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
-              <GlitterField tone="dark" density={1.2} intensity={0.9} />
-            </div>
             <ul className="wrap flex flex-col">
               {NAV_ITEMS.map((item, i) => {
                 const active = isActive(item.section, item.route)

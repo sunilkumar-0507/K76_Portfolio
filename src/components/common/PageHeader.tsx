@@ -3,7 +3,6 @@ import { gsap, prefersReducedMotion } from '../../animations/gsapConfig'
 import { useGsap } from '../../hooks/useGsap'
 import { SectionLabel } from './SectionLabel'
 import { SplitText } from './SplitText'
-import { SectionGlitter } from './GlitterField'
 
 interface PageHeaderProps {
   index: string
@@ -27,7 +26,6 @@ export function PageHeader({ index, label, title, intro, aside }: PageHeaderProp
 
   return (
     <header ref={root} data-nav-theme="light" className="isolate grain relative bg-paper pb-20 pt-[calc(var(--nav-h)+5rem)] md:pb-28 md:pt-[calc(var(--nav-h)+8rem)]">
-      <SectionGlitter tone="light" />
       <div className="wrap">
         <div data-ph-fade>
           <SectionLabel index={index} label={label} className="mb-10" />

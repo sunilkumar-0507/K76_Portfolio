@@ -6,7 +6,6 @@ import { revealSplit } from '../../animations/scrollAnimations'
 import { useGsap } from '../../hooks/useGsap'
 import { useIsDesktop } from '../../hooks/useMediaQuery'
 import { LOGO } from '../common/BrandMark'
-import { GlitterField } from '../common/GlitterField'
 import { SectionLabel } from '../common/SectionLabel'
 import { SplitText } from '../common/SplitText'
 
@@ -193,7 +192,6 @@ export function Ecosystem() {
       className="on-dark relative overflow-hidden bg-[#0b0b0b] py-[clamp(4.5rem,8vw,7.5rem)]"
     >
       <div aria-hidden="true" className="absolute inset-0">
-        <GlitterField density={1} intensity={0.85} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,transparent_35%,rgba(11,11,11,0.85)_100%)]" />
       </div>
 

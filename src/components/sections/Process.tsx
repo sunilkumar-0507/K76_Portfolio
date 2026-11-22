@@ -5,7 +5,6 @@ import { PROCESS } from '../../data/services'
 import { useGsap } from '../../hooks/useGsap'
 import { SectionLabel } from '../common/SectionLabel'
 import { SplitText } from '../common/SplitText'
-import { SectionGlitter } from '../common/GlitterField'
 
 export function Process({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
   const dark = tone === 'dark'
@@ -57,7 +56,6 @@ export function Process({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
       aria-labelledby="process-title"
       className={`relative isolate grain section ${dark ? 'on-dark' : 'bg-paper text-ink'}`}
     >
-      <SectionGlitter tone={tone} />
       <div className="wrap">
         <SectionLabel index="03" label="Our approach" tone={tone} className="mb-10" />
         <div data-process-title>

@@ -7,7 +7,6 @@ import { OFFICES, SITE, whatsappLink } from '../../utils/constants'
 import { SectionLabel } from '../common/SectionLabel'
 import { SplitText } from '../common/SplitText'
 import { ContactForm } from './ContactForm'
-import { SectionGlitter } from '../common/GlitterField'
 
 const CHANNELS = [
   {
@@ -33,7 +32,6 @@ export function Contact({ index = '06', headingLevel = 'h2' }: { index?: string;
 
   return (
     <section id="contact" ref={root} data-nav-theme="dark" aria-labelledby="contact-title" className="isolate on-dark grain section relative">
-      <SectionGlitter tone="dark" />
       <div className="wrap">
         <SectionLabel index={index} label="Contact" tone="dark" className="mb-10" />
         <div data-contact-title>

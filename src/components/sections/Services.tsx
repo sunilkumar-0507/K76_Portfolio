@@ -12,7 +12,6 @@ import { useIsDesktop } from '../../hooks/useMediaQuery'
 import { SectionLabel } from '../common/SectionLabel'
 import { SplitText } from '../common/SplitText'
 import { VerticalGlyph } from './VerticalGlyph'
-import { SectionGlitter } from '../common/GlitterField'
 
 function ServiceItem({ label, n }: { label: string; n: number }) {
   const textRef = useRef<HTMLSpanElement>(null)
@@ -112,7 +111,6 @@ export function Services() {
       aria-labelledby="services-title"
       className="isolate on-dark grain section relative"
     >
-      <SectionGlitter tone="dark" />
       <div className="wrap">
         <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">

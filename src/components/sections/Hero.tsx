@@ -8,7 +8,6 @@ import { useSectionNav } from '../../hooks/useSectionNav'
 import { Button } from '../common/Button'
 import { LOGO } from '../common/BrandMark'
 import { SplitText } from '../common/SplitText'
-import { SectionGlitter } from '../common/GlitterField'
 
 const TICKS = 76
 const TICK_COLORS = ['var(--lime)', 'var(--cobalt)', 'var(--iris)', 'var(--lime)']
@@ -171,7 +170,6 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="isolate grain relative flex min-h-[100svh] flex-col overflow-clip bg-paper pt-[calc(var(--nav-h)+1.5rem)]"
     >
-      <SectionGlitter tone="light" />
       {/* Column grid */}
       <div data-hero-grid aria-hidden="true" className="pointer-events-none absolute inset-0 -top-[10%] h-[120%]">
         <div className="wrap grid h-full grid-cols-4 md:grid-cols-12">

@@ -7,7 +7,6 @@ import { useGsap } from '../../hooks/useGsap'
 import { Button } from '../common/Button'
 import { SectionLabel } from '../common/SectionLabel'
 import { SplitText } from '../common/SplitText'
-import { SectionGlitter } from '../common/GlitterField'
 
 const PILLARS = [
   { k: 'Who we are', v: ABOUT.who },
@@ -35,7 +34,6 @@ export function About() {
 
   return (
     <section id="about" ref={root} data-nav-theme="light" aria-labelledby="about-title" className="isolate section relative overflow-clip bg-paper">
-      <SectionGlitter tone="light" />
       {/* Oversized outlined founding year */}
       <p
         data-year
