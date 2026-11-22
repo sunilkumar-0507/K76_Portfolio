@@ -70,7 +70,7 @@ export default function AboutPage() {
               <SectionLabel index="01" label="Our story" />
             </div>
             <div className="md:col-span-7 md:col-start-6">
-              <h2 id="story-title" data-reveal className="font-display text-[clamp(1.6rem,3vw,2.8rem)] font-medium leading-[1.08] tracking-[-0.03em]">
+              <h2 id="story-title" data-reveal className="font-display text-[clamp(1.6rem,3vw,2.8rem)] font-semibold leading-[1.08] tracking-[-0.03em]">
                 From a small marketing studio to a multi-vertical ecosystem.
               </h2>
               <p data-reveal className="mt-8 text-ink/70">
@@ -85,7 +85,7 @@ export default function AboutPage() {
           <dl data-reveal-group className="wrap mt-20 grid grid-cols-2 gap-y-10 md:grid-cols-4">
             {FIGURES.map((f) => (
               <div key={f.label} data-reveal className="border-l border-ink/15 pl-5">
-                <dd className="font-display text-[clamp(2.6rem,5vw,4.5rem)] font-medium leading-none tracking-[-0.05em]">{f.value}</dd>
+                <dd className="font-display text-[clamp(2.6rem,5vw,4.5rem)] font-semibold leading-none tracking-[-0.05em]">{f.value}</dd>
                 <dt className="t-label mt-3 text-ink/50">{f.label}</dt>
               </div>
             ))}
@@ -107,13 +107,13 @@ export default function AboutPage() {
               ].map((x) => (
                 <div key={x.k} data-reveal className="bg-char py-10 md:p-10">
                   <p className="t-label text-lime">{x.k}</p>
-                  <p className="mt-8 font-display text-[clamp(1.4rem,2.2vw,2.1rem)] font-medium leading-[1.12] tracking-[-0.025em]">{x.v}</p>
+                  <p className="mt-8 font-display text-[clamp(1.4rem,2.2vw,2.1rem)] font-semibold leading-[1.12] tracking-[-0.025em]">{x.v}</p>
                 </div>
               ))}
             </div>
 
             <figure className="mt-24 max-w-5xl md:mt-32">
-              <blockquote className="font-display text-[clamp(1.8rem,4vw,4rem)] font-medium leading-[1.02] tracking-[-0.035em]">
+              <blockquote className="font-display text-[clamp(1.8rem,4vw,4rem)] font-semibold leading-[1.02] tracking-[-0.035em]">
                 “{FOUNDER.quote}”
               </blockquote>
               <figcaption className="mt-8">
@@ -137,7 +137,7 @@ export default function AboutPage() {
               {VALUES.map((v, i) => (
                 <li key={v.title} data-reveal className="grid gap-2 border-t border-ink/15 py-8 sm:grid-cols-12 last:border-b">
                   <span className="t-index text-xs text-ink/40 sm:col-span-1">0{i + 1}</span>
-                  <h3 className="font-display text-2xl font-medium tracking-[-0.025em] sm:col-span-5">{v.title}</h3>
+                  <h3 className="font-display text-2xl font-semibold tracking-[-0.025em] sm:col-span-5">{v.title}</h3>
                   <p className="text-ink/65 sm:col-span-6">{v.body}</p>
                 </li>
               ))}
@@ -160,8 +160,8 @@ export default function AboutPage() {
                 {MILESTONES.map((m) => (
                   <li key={m.year} data-reveal className="relative border-l border-ink/15 pl-6 md:border-l-0 md:pl-0">
                     <span aria-hidden="true" className="absolute -left-[5px] top-1.5 h-[9px] w-[9px] rounded-full bg-lime-deep md:static md:mb-8 md:block md:h-[18px] md:w-[18px] md:border-4 md:border-paper md:bg-ink" />
-                    <p className="t-index font-display text-4xl font-medium tracking-[-0.05em]">{m.year}</p>
-                    <h3 className="mt-3 font-display text-lg font-medium">{m.title}</h3>
+                    <p className="t-index font-display text-4xl font-semibold tracking-[-0.05em]">{m.year}</p>
+                    <h3 className="mt-3 font-display text-lg font-semibold">{m.title}</h3>
                     <p className="mt-2 text-sm text-ink/60">{m.body}</p>
                   </li>
                 ))}

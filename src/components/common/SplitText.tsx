@@ -11,6 +11,8 @@ interface SplitTextProps {
   lineClassName?: string
   style?: CSSProperties
   id?: string
+  /** Brand accent: last word in violet and a trailing full stop as a green dot. */
+  accent?: boolean
 }
 
 /**
@@ -27,6 +29,7 @@ export function SplitText({
   lineClassName,
   style,
   id,
+  accent = false,
 }: SplitTextProps) {
   const lines = text.split('\n')
   const plain = lines.join(' ')
@@ -47,24 +50,32 @@ export function SplitText({
             )
           }
           const words = line.split(' ')
+          const isLastLine = li === lines.length - 1
           return (
             <span key={li} className={lineCls}>
-              {words.map((word, wi) => (
-                <span key={wi}>
-                  {by === 'word' ? (
-                    <span className="split-word split-inner">{word}</span>
-                  ) : (
-                    <span className="split-word">
-                      {Array.from(word).map((ch, ci) => (
-                        <span key={ci} className="split-char split-inner">
-                          {ch}
-                        </span>
-                      ))}
-                    </span>
-                  )}
-                  {wi < words.length - 1 ? ' ' : null}
-                </span>
-              ))}
+              {words.map((word, wi) => {
+                const accented = accent && isLastLine && wi === words.length - 1
+                const chars = Array.from(word)
+                return (
+                  <span key={wi} className={accented ? 'text-iris' : undefined}>
+                    {by === 'word' ? (
+                      <span className="split-word split-inner">{word}</span>
+                    ) : (
+                      <span className="split-word">
+                        {chars.map((ch, ci) => (
+                          <span
+                            key={ci}
+                            className={accented && ch === '.' && ci === chars.length - 1 ? 'split-char split-inner text-lime' : 'split-char split-inner'}
+                          >
+                            {ch}
+                          </span>
+                        ))}
+                      </span>
+                    )}
+                    {wi < words.length - 1 ? ' ' : null}
+                  </span>
+                )
+              })}
             </span>
           )
         })}

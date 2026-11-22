@@ -181,7 +181,7 @@ export function Services() {
                 <div className="flex items-start justify-between gap-6">
                   <span
                     data-v-rise
-                    className={`t-index t-outline font-display text-[clamp(4.5rem,12vw,10rem)] font-medium leading-[0.8] tracking-[-0.06em] transition-colors duration-500 ${
+                    className={`t-index t-outline font-display text-[clamp(4.5rem,12vw,10rem)] font-semibold leading-[0.8] tracking-[-0.06em] transition-colors duration-500 ${
                       active === i ? 'text-[var(--v-tint)]' : 'text-paper/50'
                     }`}
                   >

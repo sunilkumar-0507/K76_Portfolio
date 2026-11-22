@@ -1,4 +1,5 @@
 import { Footer } from '../components/common/Footer'
+import { PageHeader } from '../components/common/PageHeader'
 import { PageTransition } from '../components/common/PageTransition'
 import { organizationJsonLd, Seo } from '../components/common/Seo'
 import { Contact } from '../components/sections/Contact'
@@ -21,8 +22,15 @@ export default function ContactPage() {
         path="/contact"
         jsonLd={[organizationJsonLd, contactJsonLd]}
       />
-      <main id="main" data-nav-theme="dark" className="bg-char pt-[var(--nav-h)]">
-        <Contact index="C" headingLevel="h1" />
+      <main id="main">
+        <PageHeader
+          index="C"
+          label="Contact"
+          title={'Start a\nproject.'}
+          intro="Tell us about your business and where you want to go. WhatsApp, call or write — we reply within one business day."
+          aside={`${SITE.hours} · Chennai & Tenkasi`}
+        />
+        <Contact index="01" />
       </main>
       <Footer />
     </PageTransition>

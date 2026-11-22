@@ -106,7 +106,7 @@ export default function ServicesPage() {
               {COURSES.map((c) => (
                 <article key={c.title} data-reveal className="group flex min-h-44 flex-col bg-paper p-6 sm:min-h-64 sm:p-8 transition-colors duration-500 hover:bg-cobalt hover:text-paper">
                   <span className="t-label text-ink/45 group-hover:text-paper/80">{c.weeks} weeks</span>
-                  <h3 className="mt-auto font-display text-3xl font-medium uppercase leading-none tracking-[-0.04em]">{c.title}</h3>
+                  <h3 className="mt-auto font-display text-3xl font-extrabold uppercase leading-none tracking-[-0.04em]">{c.title}</h3>
                   <p className="mt-3 text-sm text-ink/60 group-hover:text-paper/65">{c.topics}</p>
                 </article>
               ))}
@@ -146,7 +146,7 @@ export default function ServicesPage() {
               {VERTICALS[2].items.map((item, i) => (
                 <li key={item} data-reveal className="flex items-baseline gap-6 border-t border-ink/15 py-6 last:border-b">
                   <span className="t-index text-xs text-ink/40">0{i + 1}</span>
-                  <span className="font-display text-[clamp(1.4rem,2.6vw,2.4rem)] font-medium uppercase leading-none tracking-[-0.035em]">
+                  <span className="font-display text-[clamp(1.4rem,2.6vw,2.4rem)] font-extrabold uppercase leading-none tracking-[-0.035em]">
                     {item}
                   </span>
                 </li>
@@ -167,7 +167,7 @@ export default function ServicesPage() {
               {[0, 1].map((d) => (
                 <ul key={d} className="flex shrink-0 items-center">
                   {INDUSTRIES.map((ind, n) => (
-                    <li key={ind} className="flex items-center font-display text-[clamp(2rem,5vw,4.5rem)] font-medium uppercase tracking-[-0.04em]">
+                    <li key={ind} className="flex items-center font-display text-[clamp(2rem,5vw,4.5rem)] font-extrabold uppercase tracking-[-0.04em]">
                       <span className="px-8">{ind}</span>
                       <span className="h-3 w-3 rounded-full" style={{ background: brandColor(n) }} />
                     </li>

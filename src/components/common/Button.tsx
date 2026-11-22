@@ -81,7 +81,7 @@ export function Button({
 
   const sizing = size === 'lg' ? 'h-16 px-8 text-base' : 'h-12 px-6 text-sm'
   const classes = [
-    'roll-host group relative inline-flex select-none items-center justify-center gap-3 rounded-full font-display font-medium tracking-tight',
+    'roll-host group relative inline-flex select-none items-center justify-center gap-3 rounded-full font-display font-semibold tracking-tight',
     'transition-[background-color,border-color,color,opacity] duration-300',
     'disabled:pointer-events-none disabled:opacity-50',
     sizing,

@@ -364,7 +364,7 @@ export function Ecosystem() {
                   <span className="t-index">{p.index}</span>
                 </span>
                 <span
-                  className={`block font-display text-[clamp(1.05rem,2.2vw,2rem)] font-medium uppercase leading-[0.95] tracking-[-0.035em] transition-colors duration-300 ${
+                  className={`block font-display text-[clamp(1.05rem,2.2vw,2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.035em] transition-colors duration-300 ${
                     focus && focus !== p.id ? 'text-paper/35' : 'text-paper'
                   }`}
                   style={focus === p.id ? { color: GLOW[p.id] } : undefined}
@@ -387,7 +387,7 @@ export function Ecosystem() {
                   <span className="h-2.5 w-2.5" style={{ background: GLOW[p.id] }} aria-hidden="true" />
                   <span className="t-index">{p.index}</span>
                 </p>
-                <h3 className="mt-3 font-display text-xl font-medium tracking-[-0.02em]">{p.title}</h3>
+                <h3 className="mt-3 font-display text-xl font-semibold tracking-[-0.02em]">{p.title}</h3>
                 <p className="mt-3 max-w-sm text-sm text-paper/65">{p.body}</p>
               </div>
             </div>

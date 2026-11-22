@@ -38,7 +38,7 @@ export function About() {
       <p
         data-year
         aria-hidden="true"
-        className="t-outline pointer-events-none absolute -right-[4vw] top-[8%] select-none font-display text-[clamp(8rem,30vw,30rem)] font-medium leading-none tracking-[-0.07em] text-ink/10"
+        className="t-outline pointer-events-none absolute -right-[4vw] top-[8%] select-none font-display text-[clamp(8rem,30vw,30rem)] font-semibold leading-none tracking-[-0.07em] text-ink/10"
       >
         2021
       </p>
@@ -67,14 +67,14 @@ export function About() {
               as="p"
               by="line"
               text={'Technology should empower businesses\nto grow faster — not become another\nproblem to manage.'}
-              className="hidden font-display text-[clamp(1.6rem,3.6vw,3.6rem)] font-medium leading-[1.02] tracking-[-0.035em] md:block"
+              className="hidden font-display text-[clamp(1.6rem,3.6vw,3.6rem)] font-semibold leading-[1.02] tracking-[-0.035em] md:block"
             />
-            <p className="font-display text-[1.6rem] font-medium leading-[1.1] tracking-[-0.03em] text-pretty md:hidden">
+            <p className="font-display text-[1.6rem] font-semibold leading-[1.1] tracking-[-0.03em] text-pretty md:hidden">
               {FOUNDER.quote}
             </p>
           </blockquote>
           <figcaption className="md:col-span-9 md:col-start-2">
-            <span className="block font-display text-lg font-medium">{FOUNDER.name}</span>
+            <span className="block font-display text-lg font-semibold">{FOUNDER.name}</span>
             <span className="t-label text-ink/50">{FOUNDER.role}</span>
           </figcaption>
         </figure>
@@ -109,7 +109,7 @@ export function About() {
             {WHY_K76.map((w, i) => (
               <li key={w.title} data-why className="border-t border-ink/15 py-6">
                 <span className="t-index text-xs text-ink/40">({String.fromCharCode(97 + i)})</span>
-                <p className="mt-2 font-display text-xl font-medium tracking-[-0.02em]">{w.title}</p>
+                <p className="mt-2 font-display text-xl font-semibold tracking-[-0.02em]">{w.title}</p>
                 <p className="mt-1 text-sm text-ink/60">{w.body}</p>
               </li>
             ))}

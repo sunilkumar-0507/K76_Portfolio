@@ -1,11 +1,11 @@
 @layer components {
-/* Editorial type scale — fluid, display set in Space Grotesk */
+/* Editorial type scale — fluid, display set in Plus Jakarta Sans (heavy), labels in Space Grotesk */
 
 .t-display {
   font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -0.055em;
-  line-height: 0.84;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
   text-transform: uppercase;
 }
 
@@ -14,21 +14,25 @@
   font-size: clamp(2.6rem, min(9.6vw, 19svh), 12.5rem);
 }
 
+.t-hero {
+  font-size: clamp(2.6rem, min(6.6vw, 14.5svh), 9.25rem);
+}
+
 .t-h1 {
   font-size: clamp(2.8rem, 9vw, 9.5rem);
 }
 
 .t-h2 {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(2.25rem, 6vw, 6.5rem);
+  font-weight: 800;
+  font-size: clamp(2.1rem, 5.4vw, 6rem);
   letter-spacing: -0.045em;
-  line-height: 0.92;
+  line-height: 0.95;
 }
 
 .t-h3 {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(1.6rem, 3.2vw, 3rem);
   letter-spacing: -0.035em;
   line-height: 1;
@@ -36,8 +40,8 @@
 
 .t-statement {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(2rem, 5.4vw, 5.75rem);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 5vw, 5.4rem);
   letter-spacing: -0.045em;
   line-height: 0.98;
   text-transform: uppercase;
@@ -50,10 +54,10 @@
 }
 
 .t-label {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   line-height: 1.2;
 }

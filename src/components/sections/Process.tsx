@@ -74,7 +74,7 @@ export function Process({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
                   {PROCESS.map((p) => (
                     <p
                       key={p.index}
-                      className={`t-index font-display text-[clamp(10rem,18vw,17rem)] font-medium leading-none tracking-[-0.07em] ${dark ? 'text-lime' : 'text-cobalt'}`}
+                      className={`t-index font-display text-[clamp(10rem,18vw,17rem)] font-semibold leading-none tracking-[-0.07em] ${dark ? 'text-lime' : 'text-cobalt'}`}
                     >
                       {p.index}
                     </p>
@@ -117,7 +117,7 @@ export function Process({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
       </div>
 
       <style>{`
-        #process { --step-dim: rgb(245 243 237 / .3); --step-on: var(--paper); --step-past: rgb(245 243 237 / .6) }
+        #process { --step-dim: rgb(247 245 243 / .3); --step-on: var(--paper); --step-past: rgb(247 245 243 / .6) }
         #process[data-tone="light"] { --step-dim: rgb(23 23 23 / .28); --step-on: var(--ink); --step-past: rgb(23 23 23 / .6) }
         @media (prefers-reduced-motion: no-preference) {
           .process-step .process-title { color: var(--step-dim) }

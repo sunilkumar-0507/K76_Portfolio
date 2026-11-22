@@ -7,9 +7,9 @@
    K76 design tokens
    ------------------------------------------------------------------ */
 :root {
-  --paper: #f5f3ed;
-  --paper-2: #ebe8df;
-  --paper-3: #e0dccf;
+  --paper: #f7f5f3;
+  --paper-2: #efecea;
+  --paper-3: #e5e1de;
   --ink: #171717;
   --char: #111111;
   --char-2: #1b1b1a;
@@ -17,12 +17,14 @@
   --muted: #6b6a64;
   --muted-on-dark: #8f8e87;
   --line: rgb(23 23 23 / 0.14);
-  --line-on-dark: rgb(245 243 237 / 0.14);
+  --line-on-dark: rgb(247 245 243 / 0.14);
   /* K76 logo palette */
   --lime: #9dc33b;
   --lime-deep: #7fa526;
   --cobalt: #1d4fc4;
-  --iris: #7b3fd6;
+  --iris: #7b35e8;
+  /* soft lavender used for the hero disc and tinted panels */
+  --lavender: #ece4fd;
   /* lighter tints for text on charcoal */
   --cobalt-soft: #7097f2;
   --iris-soft: #ad86f2;
@@ -37,9 +39,9 @@
 }
 
 @theme {
-  --color-paper: #f5f3ed;
-  --color-paper-2: #ebe8df;
-  --color-paper-3: #e0dccf;
+  --color-paper: #f7f5f3;
+  --color-paper-2: #efecea;
+  --color-paper-3: #e5e1de;
   --color-ink: #171717;
   --color-char: #111111;
   --color-char-2: #1b1b1a;
@@ -49,12 +51,14 @@
   --color-lime: #9dc33b;
   --color-lime-deep: #7fa526;
   --color-cobalt: #1d4fc4;
-  --color-iris: #7b3fd6;
+  --color-iris: #7b35e8;
+  --color-lavender: #ece4fd;
   --color-cobalt-soft: #7097f2;
   --color-iris-soft: #ad86f2;
   --color-ember: #e8643a;
 
-  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-label: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   --breakpoint-xs: 26rem;
@@ -204,6 +208,13 @@ button {
 .on-dark.grain::after {
   mix-blend-mode: screen;
   opacity: 0.05;
+}
+
+/* Hero character: the source art is cropped at the chair, so fade the base out. */
+.hero-man {
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  filter: drop-shadow(0 18px 28px rgb(17 17 17 / 0.12));
 }
 
 /* Form controls */

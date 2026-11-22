@@ -30,9 +30,9 @@ export function Introduction() {
     // Subtle background shift as the section ends — sets up the dark vertical section.
     gsap.fromTo(
       el,
-      { backgroundColor: '#f5f3ed' },
+      { backgroundColor: '#f7f5f3' },
       {
-        backgroundColor: '#ebe8df',
+        backgroundColor: '#efecea',
         ease: 'none',
         scrollTrigger: { trigger: el, start: 'center center', end: 'bottom top', scrub: true },
       },
@@ -107,7 +107,7 @@ export function Introduction() {
                 } ${i === 2 ? 'md:border-l md:pl-8' : ''}`}
               >
                 <dt className="t-label order-2 text-ink/50">{f.label}</dt>
-                <dd className="t-index order-1 font-display text-[clamp(2.8rem,6vw,5.5rem)] font-medium leading-none tracking-[-0.05em]">
+                <dd className="t-index order-1 font-display text-[clamp(2.8rem,6vw,5.5rem)] font-semibold leading-none tracking-[-0.05em]">
                   {numeric && !isYear ? (
                     <>
                       <span data-count={numeric[1]}>{numeric[1]}</span>

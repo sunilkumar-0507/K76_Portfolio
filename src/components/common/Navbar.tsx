@@ -157,7 +157,7 @@ export function Navbar() {
                     type="button"
                     onClick={() => goTo(item.section)}
                     aria-current={active ? 'true' : undefined}
-                    className="roll-host relative flex items-center rounded-full px-4 py-2 font-display text-[0.9rem] font-medium tracking-tight"
+                    className="roll-host relative flex items-center rounded-full px-4 py-2 font-display text-[0.9rem] font-semibold tracking-tight"
                   >
                     {active ? (
                       <motion.span
@@ -173,6 +173,14 @@ export function Navbar() {
                       <span>{item.label}</span>
                       <span aria-hidden="true">{item.label}</span>
                     </span>
+                    {active ? (
+                      <motion.span
+                        layoutId="nav-active-bar"
+                        aria-hidden="true"
+                        className="absolute bottom-1 left-[calc(50%-0.75rem)] h-[3px] w-6 rounded-full bg-lime"
+                        transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                      />
+                    ) : null}
                   </button>
                 </li>
               )
@@ -184,7 +192,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => goTo('contact')}
-              className="roll-host group inline-flex h-10 items-center gap-2 rounded-full bg-lime px-5 font-display text-sm font-medium text-ink"
+              className="roll-host group inline-flex h-10 items-center gap-2 rounded-full bg-lime px-5 font-display text-sm font-semibold text-ink"
             >
               <span className="roll">
                 <span>Start a project</span>
@@ -197,7 +205,7 @@ export function Navbar() {
           <button
             ref={menuBtnRef}
             type="button"
-            className="group flex items-center gap-3 font-display text-sm font-medium uppercase tracking-[0.14em] lg:hidden"
+            className="group flex items-center gap-3 font-display text-sm font-semibold uppercase tracking-[0.14em] lg:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -256,7 +264,7 @@ export function Navbar() {
                     >
                       <span className="t-index w-8 text-xs text-paper/40">0{i + 1}</span>
                       <span
-                        className={`font-display text-[clamp(2.4rem,11vw,4.5rem)] font-medium uppercase leading-[0.95] tracking-[-0.05em] ${
+                        className={`font-display text-[clamp(2.4rem,11vw,4.5rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.05em] ${
                           active ? 'text-lime' : ''
                         }`}
                       >

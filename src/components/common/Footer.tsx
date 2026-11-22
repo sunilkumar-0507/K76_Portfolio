@@ -48,7 +48,7 @@ export function Footer() {
       <div className="wrap relative">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
-            <p className="font-display text-3xl font-medium leading-[1.05] tracking-[-0.04em] md:text-4xl">
+            <p className="font-display text-3xl font-semibold leading-[1.05] tracking-[-0.04em] md:text-4xl">
               Build smarter.
               <br />
               Market better.
