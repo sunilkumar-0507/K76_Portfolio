@@ -8,7 +8,7 @@ import { PageHeader } from '../components/common/PageHeader'
 import { PageTransition } from '../components/common/PageTransition'
 import { SectionLabel } from '../components/common/SectionLabel'
 import { organizationJsonLd, Seo } from '../components/common/Seo'
-import { ABOUT, FIGURES, FOUNDER, LEADERSHIP, MILESTONES, VALUES } from '../data/company'
+import { ABOUT, FIGURES, FOUNDER, MILESTONES, VALUES } from '../data/company'
 import { useGsap } from '../hooks/useGsap'
 import { SITE } from '../utils/constants'
 
@@ -145,38 +145,10 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Leadership */}
-        <section data-nav-theme="light" className="relative isolate section bg-paper-2" aria-labelledby="team-title">
-          <div className="wrap">
-            <SectionLabel index="04" label="Leadership" className="mb-10" />
-            <h2 id="team-title" className="t-h2 max-w-[16ch] uppercase">
-              The people behind K76.
-            </h2>
-            <p className="mt-8 max-w-xl text-ink/65">
-              Our leadership combines technology, creativity and business strategy to help brands scale with confidence.
-            </p>
-            <ul data-reveal-group className="mt-16">
-              {LEADERSHIP.map((p, i) => (
-                <li
-                  key={p.name}
-                  data-reveal
-                  className="group grid items-baseline gap-2 border-t border-ink/15 py-6 transition-colors duration-500 last:border-b hover:bg-ink hover:text-paper sm:grid-cols-12 sm:px-4"
-                >
-                  <span className="t-index text-xs text-ink/40 group-hover:text-lime sm:col-span-1">0{i + 1}</span>
-                  <span className="font-display text-[clamp(1.6rem,3.4vw,3.2rem)] font-medium uppercase leading-none tracking-[-0.045em] sm:col-span-7">
-                    {p.name}
-                  </span>
-                  <span className="t-label text-ink/55 group-hover:text-paper/70 sm:col-span-4 sm:text-right">{p.role}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
         {/* Milestones */}
         <section data-nav-theme="light" className="relative isolate section overflow-clip bg-paper" aria-labelledby="milestones-title">
           <div className="wrap">
-            <SectionLabel index="05" label="Milestones" className="mb-10" />
+            <SectionLabel index="04" label="Milestones" className="mb-10" />
             <h2 id="milestones-title" className="t-h2 uppercase">
               Five years of compounding.
             </h2>

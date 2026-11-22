@@ -40,14 +40,6 @@ export const FOUNDER = {
   quote: 'Technology should empower businesses to grow faster — not become another problem to manage.',
 }
 
-export const LEADERSHIP = [
-  { name: 'Pearari Krishnan K', role: 'Founder & CEO' },
-  { name: 'Oviya Krishnan', role: 'Co-Founder & Chief Marketing Officer' },
-  { name: 'Libiksha Babu', role: 'HR & Operations' },
-  { name: 'Swathi Sree', role: 'Creative Director' },
-  { name: 'Sunil Kumar', role: 'Head of AI & Automation' },
-]
-
 export const MILESTONES = [
   { year: '2021', title: 'K76 founded', body: 'Started as a small marketing studio with three founding clients.' },
   { year: '2022', title: 'Engineering arm', body: 'Launched the software practice — websites, CRMs and dashboards.' },
